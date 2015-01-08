@@ -1,0 +1,19 @@
+# Can ignore specific files
+.DS_Store
+.buildpath
+.project
+.settings
+.idea
+.gitconfig
+.Dropbox
+.dropbox
+.sass-cache
+
+# Can also ignore all directories and files in a directory.
+node_modules/
+.sass-cache/
+tmp/
+
+# Use wildcards as well
+#*~
+#*.swp

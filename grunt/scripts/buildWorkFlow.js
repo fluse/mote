@@ -5,162 +5,7 @@ var fs = require("fs"),
     extend = require('extend'),
     figures = require('figures');
 
-module.exports = function (grunt) {
-
-    'use strict';
-
-    //var buildWorkFlow = require('./grunt/scripts/buildWorkflow.js');
-
-    require('time-grunt')(grunt);
-    require('load-grunt-tasks')(grunt);
-
-    buildWorkFlow.initalize(grunt);
-
-    grunt.initConfig({
-        pkg: buildWorkFlow.cfg,
-        sass: {
-            options: {
-                require: ['sass-json-vars'],
-                style: "nested"
-            },
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.tmp,
-                    src: ['**/**/*.scss'],
-                    dest: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.css,
-                    ext: '.css'
-                }]
-            }
-        },
-        watch: {
-            sass: {
-                files: ['sass/**/*.scss'],
-                tasks: ['compile']
-            }
-        },
-        autoprefixer: {
-            no_dest: {
-                src: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.css
-            }
-        },
-        cssmin: {
-            dist: {
-                options: {
-                    banner: '/* <%= pkg.name %>.<%= pkg.version %>.css - <%= pkg.copyright %> <%= grunt.template.today("yyyy-mm-dd") %> */',
-                    report: 'gzip'
-                },
-                files: [{
-                    expand: true,
-                    cwd: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.css,
-                    src: ['**/*.css'],
-                    dest: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.css,
-                    ext: '.min.css'
-                }]
-            }
-        },
-        svgmin: {
-            multiple: {
-                files: [{
-                    expand: true,
-                    cwd: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.deliverFont,
-                    src: ['**/*.svg'],
-                    dest: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.font
-                }]
-            }
-        },
-        clean: {
-            options: { force: true },
-            compile: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.tmp,
-            css: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.css + (grunt.option('name') || ""),
-            font: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.font + grunt.option('name') + "/*.scss"
-        },
-        tinypng: {
-            options: {
-                apiKey: "QcVXKzYlf7HyIVzBTxfq2BjagV6dzoPQ",
-                checkSigs: false,
-                summarize: true,
-                showProgress: true,
-                stopOnImageError: true
-            },
-            sprite: {
-                src: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.sprite + grunt.option('name') + '.png',
-                dest: '/',
-                expand: true,
-                ext: '.min.png'
-            }
-        },
-        sprite: {
-            all: {
-                'imgPath': '%pathToSprite%' + grunt.option('name') + '.min.png',
-                'algorithm': 'binary-tree',
-                'padding': 1,
-                'cssOpts': {
-                    'cssClass': function (item) {
-                        return '.spr-' + item.name;
-                    }
-                },
-                src: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.deliverSprite + grunt.option('name') + '/*.png',
-                destImg: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.sprite + grunt.option('name') + '.png',
-                destCSS: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.sprite + grunt.option('name') + '.css'
-            }
-        },
-        copy: {
-            structure: {
-                expand: true,
-                cwd: "structure/",
-                src: ['**/*'],
-                dest: buildWorkFlow.cfg.dir.docroot
-            },
-            main: {
-                expand: true,
-                flatten: true,
-                cwd: "structure/",
-                src: ['css/themes/default/*'],
-                dest: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.themes + grunt.option('name') + '/'
-            },
-            font: {
-                expand: true,
-                flatten: true,
-                cwd: "structure/",
-                src: ['deliver/font/default/*'],
-                dest: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.deliverFont + grunt.option('name') + '/'
-            },
-            cssAsScss: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: buildWorkFlow.cfg.dir.docroot + 'font/',
-                        src: ['**/*.css'],
-                        dest: buildWorkFlow.cfg.dir.docroot + 'font/',
-                        filter: 'isFile',
-                        ext: ".scss"
-                    }
-                ]
-            }
-        },
-        webfont: {
-            icons: {
-                src: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.deliver +'/font/' + grunt.option('name') + '/*.svg',
-                dest: buildWorkFlow.cfg.dir.docroot + 'font/' + grunt.option('name') + '/',
-                options: {
-                    engine: 'node',
-                    hashes: false,
-                    ie7: false,
-                    font: grunt.option('name'),
-                    templateOptions: {
-                        template: 'structure/font/template.scss'
-                    }
-                }
-            }
-        }
-    });
-
-    buildWorkFlow.createTasks();
-
-};
-
-var buildWorkFlow = {
+module.exports = {
     grunt: null,
     cfg: null,
 
@@ -169,7 +14,7 @@ var buildWorkFlow = {
         this.grunt = grunt;
         this.cfg = this.grunt.file.readJSON('package.json');
 
-        this.cfg.dir.docroot = path.join(__dirname, '../');
+        this.cfg.dir.docroot = path.join(__dirname, '../../../');
 
         /*
          * CSS Compile PreFlows
@@ -221,13 +66,9 @@ var buildWorkFlow = {
      * @returns {Array}
      */
     getThemes: function () {
-
         var themes = {};
 
         var requestedTheme = this.grunt.option('name') || false;
-
-        if (requestedTheme !== false)
-            console.log(clc.green(figures.bullet) + " get themes " + requestedTheme);
 
         this.grunt.file.recurse(this.cfg.dir.docroot + this.cfg.dir.themes, function (abspath, rootdir, subdir, filename) {
 
@@ -240,9 +81,24 @@ var buildWorkFlow = {
 
         });
 
-        console.log(clc.green(figures.tick) + " get themes");
-
         return themes;
+    },
+
+    /**
+     *
+     * @returns {Array}
+     */
+    getFonts: function () {
+        var fonts = [];
+
+        this.grunt.file.recurse(this.cfg.dir.docroot + this.cfg.dir.font, function (abspath, rootdir, subdir) {
+
+            if (typeof subdir !== 'undefined') {
+                fonts.push(subdir);
+            }
+        });
+
+        return fonts;
     },
 
     /**
@@ -281,8 +137,6 @@ var buildWorkFlow = {
 
             this.theme = this.buildThemeObject(theme);
 
-            console.log(clc.yellow(figures.pointer) + " configure theme: " + this.theme.name);
-
             var currentTheme = themes[theme];
 
             this.updateCustomThemeWithNewSettings(currentTheme);
@@ -298,10 +152,8 @@ var buildWorkFlow = {
         for (var i = 0; i < currentTheme.length; i++) {
 
             var part = currentTheme[i].split('.');
-            if (part[1] === 'json') {
-                console.log(" " + clc.yellow(figures.pointer) + " get " + currentTheme[i]);
+            if (part[1] === 'json')
                 this.theme[part[0]] = this.getCustomThemeByFile(currentTheme[i]);
-            }
 
         }
     },
@@ -309,8 +161,6 @@ var buildWorkFlow = {
     buildConcats: function (currentTheme, concats) {
         // iterate over concat files
         for (var a = 0; a < concats.length; a++) {
-
-            console.log(clc.yellow(figures.pointer) + " build concat: " + concats[a].name);
 
             this.theme.dir = this.writeConcatBasedPathes(concats[a]);
 
@@ -334,15 +184,12 @@ var buildWorkFlow = {
             if (content.search("font") !== -1)
                 content += this.getFonts();
 
-            content += this.getSprites();
-
             // replace pathes
             content = content
                 .replace(/%pathToSass%/gi, this.theme.dir.sass)
                 .replace(/%pathToTheme%/gi, this.theme.dir.theme)
                 .replace(/%pathToVendor%/gi, this.theme.dir.vendor)
-                .replace(/%pathToSprite%/gi, '../' + this.theme.dir.sprite)
-                .replace(/%fontPath%/gi, '../' + this.theme.dir.font);
+                .replace(/%fontPath%/gi, this.theme.dir.font);
 
             // create compile file
             fs.writeFileSync(
@@ -378,8 +225,7 @@ var buildWorkFlow = {
             sass: directoryLevel + '/mote/' + this.cfg.dir.sass,
             theme: directoryLevel + '/' + this.cfg.dir.themes + this.theme.name + '/',
             vendor: directoryLevel + '/' + this.cfg.dir.vendor,
-            font: directoryLevel + '/' + this.cfg.dir.export.font,
-            sprite: directoryLevel + '/' + this.cfg.dir.export.sprite
+            font: directoryLevel + '/' + this.cfg.dir.export.font
         }
     },
 
@@ -401,8 +247,6 @@ var buildWorkFlow = {
                     fontImports += fs.readFileSync(
                         this.cfg.dir.docroot + this.cfg.dir.export.font + fontList[i] + '/' + fontList[i] + '.scss'
                     ).toString();
-
-                    console.log(clc.green(figures.tick) + " get fonts " + fontList[i]);
                 } catch (e) {
                     console.log(clc.red('font: ' + fontList[i] + ' not found; do: grunt font -name=' + fontList[i]));
                 }
@@ -416,30 +260,6 @@ var buildWorkFlow = {
             console.log(clc.red('icon-font-list not found in: ') + this.theme.name);
             return "";
         }
-
-    },
-
-    getSprites: function () {
-
-        var spriteImports = '';
-
-        if (this.theme.settings.hasOwnProperty('sprite-list')) {
-            var list = this.theme.settings['sprite-list'];
-            for (var spriteName in list) {
-
-                try {
-                    spriteImports += fs.readFileSync(
-                        this.cfg.dir.docroot + this.cfg.dir.export.sprite + spriteName + '.css'
-                    ).toString();
-
-                    console.log(clc.green(figures.tick) + " get sprite " + spriteName);
-                } catch (e) {
-                    console.log(clc.red(figures.cross) + " no font" + spriteName);
-                }
-            }
-        }
-
-        return spriteImports;
 
     },
 
@@ -487,6 +307,28 @@ var buildWorkFlow = {
 
     /**
      *
+     */
+    argumentCheck: function () {
+
+        var checkList = {
+            theme: {
+                name: "default"
+            }
+        };
+
+        for (var argument in checkList) {
+            if (this.grunt.cli.tasks[0] === argument) {
+                if (typeof grunt.option('argument') === 'undefined') {
+                    console.log('no argument given ' + clc.red(argument));
+                }
+            }
+
+        }
+
+    },
+
+    /**
+     *
      * @param file
      * @param defaultSettings
      * @param customSettings
@@ -494,20 +336,17 @@ var buildWorkFlow = {
      */
     updateThemeWithDefault: function (file, defaultSettings, customSettings) {
 
-        console.log(" " + clc.green(figures.tick) + " " + file + " updated");
+        var customSettings = extend ( true, defaultSettings, customSettings);
 
-        var newCustomSettings = extend(true, defaultSettings, customSettings);
+        fs.writeFile(this.cfg.dir.docroot + this.cfg.dir.themes + this.theme.name + '/' + file, JSON.stringify(customSettings, null, 4), function(err) {
+            if(err) {
+                console.log(clc.red(err));
+                console.log();
+            } else {
+                console.log("JSON saved to " + customSettings);
+            }
+        });
 
-        if (typeof newCustomSettings !== 'undefined') {
-            fs.writeFile(this.cfg.dir.docroot + this.cfg.dir.themes + this.theme.name + '/' + file, JSON.stringify(newCustomSettings, null, 4), function(err) {
-                if(err) {
-                    console.log(" " + clc.red(figures.cross) + " " + file + " error: " + err);
-                    fs.writeFile(this.cfg.dir.docroot + this.cfg.dir.themes + this.theme.name + '/' + file, JSON.stringify(customSettings, null, 4));
-                } else {
-                    console.log(" " + clc.green(figures.tick) + " " + file + " theme updated");
-                }
-            });
-        }
         return customSettings;
     },
 
@@ -517,7 +356,6 @@ var buildWorkFlow = {
      * @returns {*}
      */
     getDefaultThemeByFile: function (file) {
-
         return require(
             this.cfg.dir.docroot + 'mote/structure/' + this.cfg.dir.themes + 'default/' + file
         );

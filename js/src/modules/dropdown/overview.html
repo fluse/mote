@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+
+    <title>Application Testing</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="../../components/LAB.js"></script>
+</head>
+<body>
+
+    <select id="DropDown" name="dropdown">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+
+    <select class="dropdown" name="dropdown">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+
+    <select class="dropdown" name="dropdown">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+
+    <select class="dropdown" name="dropdown">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+
+    <select class="dropdown" name="dropdown">
+        <option value="test1">1</option>
+        <option value="test3">2</option>
+        <option value="test3">3</option>
+    </select>
+
+    <script type="text/javascript">
+        $LAB.script("../../components/jquery.js").wait()
+                .script("../../core/inheritance.js").wait()
+                .script("../../core/mote.js")
+                .script("../../core/log.js")
+                .script("../../components/jquery.tpml.js").wait()
+                .script("../../modules/dropdown/dropdown.js")
+                .wait(function () {
+                    showDropDowns();
+                });
+
+
+        function showDropDowns() {
+            new mote.DropDown({
+                elm: "#DropDown"
+            });
+
+            $(".dropdowns").dropdown();
+        }
+    </script>
+</body>
+</html>

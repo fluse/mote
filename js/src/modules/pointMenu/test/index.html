@@ -1,0 +1,91 @@
+q<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+
+    <title>Application Testing</title>
+    <link rel="stylesheet" href="/cssFramework/core/concat_core.css">
+    <link rel="stylesheet" href="/cssFramework/ui/concat_ui.css">
+
+    <script src="../../../components/LAB.js"></script>
+    <script src="init.js"></script>
+</head>
+<body id="body" style="height: 1000px">
+
+<div class="frm bgc-wht bxs-s">
+
+    <div class="trigger" style="position: absolute; top: 300px; left: 10%;background: #000;width: 100px; height: 250px;">
+
+    </div>
+
+
+    <div class="trigger-two" style="position: absolute; top: 300px; left: 70%;background: #000;width: 100px; height: 100px;">
+
+    </div>
+
+</div>
+
+<script id="pointMenu" type="text/mote">
+
+        <form id="<%=uid%>" class="psa brs-sld-1 brc-gry bgc-wht bxs-dwn pdg-10 rnd" hidden>
+            <fieldset>
+                <legend class="fns-20">Abholort wählen</legend>
+                <ul class="">
+                    <li>
+                        <span class="address">Heckweg 34 50379 Köln</span>
+                        <span class="opentime">07:00 - 18:00</span>
+                        <span class="date">Freitag, 28.03.2014, 12:00 Uhr</span>
+                    </li>
+                    <li>
+                        <span class="address"></span>
+                        <span class="opentime"></span>
+                        <span class="date"></span>
+                    </li>
+                    <li>
+                        <span class="address"></span>
+                        <span class="opentime"></span>
+                        <span class="date"></span>
+                    </li>
+                </ul>
+            </fieldset>
+
+            <fieldset>
+                <button class="btn-scl-m" type="submit" method="post">
+                    <span class="bgc-grn-btn">
+                        <strong>Fonts</strong>
+                    </span>
+                </button>
+            </fieldset>
+
+            <fieldset>
+                <legend class="fns-20">Rückgabeort wählen</legend>
+                <ul>
+                    <li>
+                        <span class="address"></span>
+                        <span class="opentime"></span>
+                        <span class="date"></span>
+                    </li>
+                    <li>
+                        <span class="address"></span>
+                        <span class="opentime"></span>
+                        <span class="date"></span>
+                    </li>
+                    <li>
+                        <span class="address"></span>
+                        <span class="opentime"></span>
+                        <span class="date"></span>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+
+</script>
+
+<script id="close" type="text/mote">
+    <span class="close psn-top-rgt-abs bgc-org clr-wht">
+        x
+    </span>
+</script>
+
+</body>
+</html>
