@@ -39,11 +39,6 @@ module.exports = function (grunt) {
                 tasks: ['compile']
             }
         },
-        autoprefixer: {
-            no_dest: {
-                src: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.css
-            }
-        },
         cssmin: {
             dist: {
                 options: {

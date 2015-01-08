@@ -1,6 +1,6 @@
 {
   "name": "mote-css",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "copyright": "Holger Schauf",
   "description": "fast css development",
   "repository": {
@@ -55,7 +55,6 @@
         "clean:css",
         "sass",
         "clean:compile",
-        "autoprefixer",
         "cssmin"
       ],
       "description": "\t grunt compile: create theme files and compile with sass",
@@ -134,7 +133,6 @@
     "figures": "^1.3.5",
     "grunt": "^0.4.5",
     "node-dirutils": "^0.0.1",
-    "grunt-autoprefixer": "^2.0.0",
     "grunt-banner": "^0.2.3",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-csslint": "^0.2.0",
@@ -154,7 +152,6 @@
     "cli-color": "0.3.2",
     "extend": "^2.0.0",
     "grunt": "^0.4.5",
-    "grunt-autoprefixer": "^2.0.0",
     "grunt-banner": "^0.2.3",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-copy": "^0.6.0",
