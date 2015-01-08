@@ -375,7 +375,7 @@ var buildWorkFlow = {
         // build Theme Object
         return {
             tmp: this.cfg.dir.docroot + this.cfg.dir.tmp + this.theme.name + '/',
-            sass: directoryLevel + '/mote/' + this.cfg.dir.sass,
+            sass: directoryLevel + '/mote-css/' + this.cfg.dir.sass,
             theme: directoryLevel + '/' + this.cfg.dir.themes + this.theme.name + '/',
             vendor: directoryLevel + '/' + this.cfg.dir.vendor,
             font: directoryLevel + '/' + this.cfg.dir.export.font,
@@ -519,7 +519,7 @@ var buildWorkFlow = {
     getDefaultThemeByFile: function (file) {
 
         return require(
-            this.cfg.dir.docroot + 'mote/structure/' + this.cfg.dir.themes + 'default/' + file
+            this.cfg.dir.docroot + 'mote-css/structure/' + this.cfg.dir.themes + 'default/' + file
         );
     }
 

@@ -1,11 +1,11 @@
 {
-  "name": "mote",
-  "version": "0.0.5",
+  "name": "mote-css",
+  "version": "0.0.9",
   "copyright": "Holger Schauf",
   "description": "fast css development",
   "repository": {
     "type": "git",
-    "url": "git://bitbucket.org/fluse/mote.git"
+    "url": "git@github.com:fluse/mote.git"
   },
   "dir": {
     "docroot": "../",
