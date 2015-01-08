@@ -1,6 +1,6 @@
 {
     "name": "mote-",
-    "version": "0.0.9",
+    "version": "0.0.11",
     "main": "docs/docu/index.html",
     "author": "Holger Schauf",
     "ignore": [
