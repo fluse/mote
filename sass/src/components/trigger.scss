@@ -1,11 +1,11 @@
 .trigger {
 
     .target {
-        @extend .dsp-non !optional;
+        @extend .hidden;
     }
 
     :checked ~ .target {
-        @extend .dsp-blk !optional;
+        @extend .dsp-blk;
     }
 
 }
