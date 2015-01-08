@@ -1,0 +1,175 @@
+{
+  "name": "mote",
+  "version": "0.0.5",
+  "copyright": "Holger Schauf",
+  "description": "fast css development",
+  "repository": {
+    "type": "git",
+    "url": "git://bitbucket.org/fluse/mote.git"
+  },
+  "dir": {
+    "docroot": "../",
+    "sass": "sass",
+    "tmp": "moteTmp/",
+    "vendor": "css/vendor",
+    "themes": "css/themes/",
+    "concats": "css/concats/",
+    "export": {
+      "css": "css/dist/",
+      "font": "font/",
+      "images": "images/",
+      "sprite": "images/sprite/"
+    },
+    "deliver": "deliver/",
+    "deliverFont": "deliver/font/",
+    "deliverSprite": "deliver/sprite/",
+    "deliverImages": "deliver/images/"
+  },
+  "clear": [
+    "sass/tmp/",
+    ".sass-cache",
+    "css/**/*.map"
+  ],
+  "sass": {
+    "master": "@import '%pathToSass%/src/helpers/master';"
+  },
+  "tasks": {
+    "mote": {
+      "components": [
+        "copy:structure"
+      ],
+      "description": "\t\t grunt mote: create structure"
+    },
+    "clear": {
+      "components": [
+        "clean"
+      ],
+      "description": "\t\t grunt clear: delete following folders"
+    },
+    "help": {
+      "components": [],
+      "description": "\t\t grunt help: show possible tasks"
+    },
+    "compile": {
+      "components": [
+        "clean:css",
+        "sass",
+        "clean:compile",
+        "autoprefixer",
+        "cssmin"
+      ],
+      "description": "\t grunt compile: create theme files and compile with sass",
+      "arguments": {
+        "-name=default": "compile only given theme"
+      }
+    },
+    "createFont": {
+      "components": [
+        "copy:font"
+      ],
+      "description": "\t grunt createFont: create font folder",
+      "arguments": {
+        "-name=default": "name of font"
+      }
+    },
+    "compileSprite": {
+      "components": [
+        "sprite:all",
+        "tinypng:sprite"
+      ],
+      "description": "\t grunt compileSprite: create sprite from folder",
+      "arguments": {
+        "-name=default": "name of sprite folder"
+      }
+    },
+    "production": {
+      "components": [
+        "webfont",
+        "copy:cssAsScss",
+        "clean:css",
+        "sass",
+        "clean:compile",
+        "cssmin"
+      ],
+      "description": "\t grunt production: create font, theme files and compile with sass",
+      "arguments": {
+        "-name=default": "font name"
+      }
+    },
+    "image": {
+      "components": [
+        "imagemin"
+      ],
+      "description": "\t\t optimize image size"
+    },
+    "font": {
+      "components": [
+        "webfont",
+        "copy:cssAsScss"
+      ],
+      "description": "\t\t grunt icon: create icon fonts",
+      "arguments": {
+        "-name=name": "compile font/{name}/*.svg into font/{name}/*.*"
+      }
+    },
+    "theme": {
+      "components": [
+        "copy:main"
+      ],
+      "description": "\t\t create new theme from default",
+      "arguments": {
+        "-name=name": "create new sass/themes/{name}/*.*"
+      }
+    },
+    "watch": {
+      "components": [
+        "watch"
+      ],
+      "description": "\t\t watch for modifications and rebuild"
+    }
+  },
+  "dependencies": {
+    "cli-color": "^0.3.2",
+    "extend": "^2.0.0",
+    "figures": "^1.3.5",
+    "grunt": "^0.4.5",
+    "node-dirutils": "^0.0.1",
+    "grunt-autoprefixer": "^2.0.0",
+    "grunt-banner": "^0.2.3",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-csslint": "^0.2.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-webfont": "^0.4.8",
+    "inquirer": "^0.8.0",
+    "mkdirp": "^0.5.0",
+    "grunt-spritesmith": "^2.20.0",
+    "grunt-tinypng": "^0.5.3"
+  },
+  "scripts": {
+    "start": "node tasks.js"
+  },
+  "devDependencies": {
+    "cli-color": "0.3.2",
+    "extend": "^2.0.0",
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^2.0.0",
+    "grunt-banner": "^0.2.3",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.6.0",
+    "grunt-contrib-csslint": "^0.2.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mkdir": "^0.1.2",
+    "grunt-spritesmith": "^2.20.0",
+    "grunt-tinypng": "^0.5.3",
+    "grunt-webfont": "^0.4.8",
+    "inquirer": "^0.8.0",
+    "load-grunt-config": "^0.16.0",
+    "load-grunt-tasks": "^0.6.0",
+    "mkdirp": "0.5.0",
+    "time-grunt": "^1.0.0"
+  }
+}

@@ -1,0 +1,109 @@
+.bgp-dtd {
+
+    @include vendor-prefix(background-size, 3px 3px);
+
+    background-image: -webkit-repeating-radial-gradient(
+            center center, rgba(0,0,0,.2),
+            rgba(0,0,0,.2) 1px,
+            transparent 1px,
+            transparent 100%
+    );
+    @if map-get($browser, firefox) > 3 and map-get($browser, firefox) < 25 {
+        background-image: -moz-repeating-radial-gradient(
+                center center,
+                rgba(0,0,0,.2),
+                rgba(0,0,0,.2) 1px,
+                transparent 1px,
+                transparent 100%
+        );
+    }
+    @if map-get($browser, ie) > 9 {
+        background-image: -ms-repeating-radial-gradient(
+                center center,
+                rgba(0,0,0,.2),
+                rgba(0,0,0,.2) 1px,
+                transparent 1px,
+                transparent 100%
+        );
+    }
+    background-image: repeating-radial-gradient(
+            center center,
+            rgba(0,0,0,.2),
+            rgba(0,0,0,.2) 1px,
+            transparent 1px,
+            transparent 100%
+    );
+}
+
+.bgp-str {
+
+    @include vendor-prefix(background-size, 4px 4px);
+
+    background-image: -webkit-repeating-linear-gradient(
+            135deg,
+            rgba(0,0,0,.3),
+            rgba(0,0,0,.3) 1px,
+            transparent 2px,
+            transparent 2px,
+            rgba(0,0,0,.3) 3px
+    );
+    background-image: -moz-repeating-linear-gradient(
+            135deg,
+            rgba(0,0,0,.3),
+            rgba(0,0,0,.3) 1px,
+            transparent 2px,
+            transparent 2px,
+            rgba(0,0,0,.3) 3px
+    );
+    @if map-get($browser, opera) > 11 and map-get($browser, opera) < 15 {
+        background-image: -o-repeating-linear-gradient(
+                135deg,
+                rgba(0,0,0,.3),
+                rgba(0,0,0,.3) 1px,
+                transparent 2px,
+                transparent 2px,
+                rgba(0,0,0,.3) 3px
+        );
+    }
+    background-image: repeating-linear-gradient(
+            135deg,
+            rgba(0,0,0,.3),
+            rgba(0,0,0,.3) 1px,
+            transparent 2px,
+            transparent 2px,
+            rgba(0,0,0,.3) 3px
+    );
+}
+
+.bgp-ang {
+    background-image: -webkit-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, .2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, .2) 50%,
+            rgba(255, 255, 255, .2) 75%,
+            transparent 75%,
+            transparent
+    );
+    background-image: -moz-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, .2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, .2) 50%,
+            rgba(255, 255, 255, .2) 75%,
+            transparent 75%,
+            transparent
+    );
+    background-image: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, .2) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, .2) 50%,
+            rgba(255, 255, 255, .2) 75%,
+            transparent 75%,
+            transparent
+    );
+}

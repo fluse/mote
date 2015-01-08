@@ -1,0 +1,91 @@
+/*
+ * #{$border-radius-name} = border radius
+ *
+ * set size via [m][l][xl]
+ *
+ * -#{top} = top
+ * -#{$bottom} = bottom
+ * -#{$left} = left
+ * -#{$right} = right
+ *
+ * -circ = circle
+ *
+ * reset border radius
+ *
+ * -no    = all
+ * -no-tr = no top right
+ * -no-br = no bottom right
+ * -no-bl = no bottom left
+ * -no-tl = no top left
+ *
+ * example: class="rnd-m-btm"
+ */
+
+@each $name, $value in $border-radius-list {
+
+    .#{$border-radius-name}-#{$name},
+    .#{$border-radius-name}-#{$name}-all *,
+    .#{$border-radius-name}-#{$name}-each > *,
+    .#{$border-radius-name}-#{$name}-scd * > * {
+        @include vendor-prefix(border-radius, #{$value}px);
+    }
+
+    .#{$border-radius-name}-#{$name}-#{$top} {
+        @include vendor-prefix(border-radius, #{$value}px #{$value}px 0 0);
+    }
+
+    .#{$border-radius-name}-#{$name}-#{$right} {
+        @include vendor-prefix(border-radius, 0 #{$value}px #{$value}px 0);
+    }
+
+     .#{$border-radius-name}-#{$name}-#{$bottom} {
+         @include vendor-prefix(border-radius, 0 0 #{$value}px #{$value}px);
+      }
+
+    .#{$border-radius-name}-#{$name}-#{$left} {
+        @include vendor-prefix(border-radius, #{$value}px 0 0 #{$value}px);
+     }
+
+}
+
+.#{$border-radius-name}-circ,
+.#{$border-radius-name}-circ-each > *,
+.#{$border-radius-name}-circ-scd * > * {
+    @include vendor-prefix(border-radius, 50%);
+}
+
+body .#{$border-radius-name}-non {
+    @include vendor-prefix(border-radius, 0);
+}
+
+body .#{$border-radius-name}-tr-non,
+body .#{$border-radius-name}-tr-non-each > *,
+body .#{$border-radius-name}-tr-non-scd * > * {
+    -webkit-border-top-right-radius: 0;
+       -moz-border-radius-topright: 0;
+            border-top-right-radius: 0;
+}
+
+body .#{$border-radius-name}-tl-non,
+body .#{$border-radius-name}-tl-non-each > *,
+body .#{$border-radius-name}-tl-non-each * > * {
+    -webkit-border-top-left-radius: 0;
+       -moz-border-radius-topleft: 0;
+            border-top-left-radius: 0;
+}
+
+body .#{$border-radius-name}-br-non,
+body .#{$border-radius-name}-br-non-each > *,
+body .#{$border-radius-name}-br-non-scd * > * {
+    -webkit-border-bottom-right-radius: 0;
+       -moz-border-radius-bottomright: 0;
+            border-bottom-right-radius: 0;
+}
+
+body .#{$border-radius-name}-bl-non,
+body .#{$border-radius-name}-bl-non-each > *,
+body .#{$border-radius-name}-bl-non-scd * > * {
+    -webkit-border-bottom-left-radius: 0;
+       -moz-border-radius-bottomleft: 0;
+            border-bottom-left-radius: 0;
+}

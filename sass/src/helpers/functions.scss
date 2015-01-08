@@ -1,0 +1,94 @@
+@function debug($list) {
+    $result: #{"[ "};
+
+    @each $item in $list {
+        @if length($item) > 1 {
+            $result: $result#{debug($item)};
+        }
+        @else {
+            $result: $result#{$item};
+        }
+        @if index($list, $item) != length($list) {
+            $result: $result#{", "};
+        }
+    }
+
+    $result: $result#{" ]"};
+
+    @return $result;
+}
+
+@function calculateUnit($size) {
+
+    $default-unit: #{map-get($unit, default)};
+
+    $em: $size / 10;
+    $newSize: $em * 1;
+
+    @if $default-unit == "rem" {
+        $newSize: $size / 16;
+    }
+
+    @return #{$newSize}#{$default-unit};
+}
+
+@function checkSerif() {
+    @if $font-serif == "true" {
+        @return " serif";
+    } @else {
+        @return " sans-serif";
+    }
+}
+
+@function str-replace($string, $find, $replace, $all: true) {
+    $index: str-index($string, $find);
+    @if $index {
+        $before: str-slice($string, 1, $index - 1);
+        $after: str-slice($string, $index + str-length($find), str-length($string));
+        $string: $before + $replace + $after;
+
+        @if $all and not str-index($find, $replace) {
+            $string: str-replace($string, $find, $replace);
+        }
+    }
+    @return $string;
+}
+
+@function fontRename($string) {
+    $string: str-replace($string, " ", "-");
+
+    @return $string;
+}
+
+@function url-encode($string) {
+    $replacements: (
+    "!": "%21",
+    "#": "%23",
+    "$": "%24",
+    "&": "%26",
+    "'": "%27",
+    "(": "%28",
+    ")": "%29",
+    "*": "%2A",
+    "+": "%2B",
+    ",": "%2C",
+    "/": "%2F",
+    ":": "%3A",
+    ";": "%3B",
+    "=": "%3D",
+    "?": "%3F",
+    "@": "%40",
+    "[": "%5B",
+    "]": "%5D"
+  );
+
+    @each $from, $to in $replacements {
+        $string: str-replace($string, $from, $to);
+    }
+
+    @return $string;
+}
+
+@function even($number) {
+    @return $number % 2 == 0;
+}

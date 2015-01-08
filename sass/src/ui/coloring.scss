@@ -1,0 +1,43 @@
+/*
+ * Color Settings
+ *
+ * clr = color
+ *  -each = each child
+ *  -all  = all childs
+ *  -hvr  = only on :hover state
+ * bgc = background-color
+ * brc = border-color
+ */
+
+/*
+ * bgc = background-color
+ */
+
+@each $name, $value in $color-text-list {
+
+    .clr-#{$name} {
+        color: #{$value};
+    }
+
+}
+
+@each $name, $value in $color-background-list {
+
+    .bgc-#{$name},
+    .bgc-#{$name}-each > *,
+    .bgc-#{$name}-scd * > *,
+    .bgc-#{$name}-owl * + * {
+        background-color: #{$value};
+    }
+
+}
+
+@each $name, $value in $color-border-list {
+
+    .brc-#{$name},
+    .brc-#{$name}-each > *,
+    .brc-#{$name}-owl * + * {
+        border-color: #{$value};
+    }
+
+}

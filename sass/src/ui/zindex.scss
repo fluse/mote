@@ -1,0 +1,21 @@
+/*
+ * zdx = z-index
+ */
+
+@for $i from 1 through length($index-list) {
+
+    $item: nth($index-list, $i);
+
+    .#{$index-name}-#{$item} {
+        z-index: $item;
+    }
+
+}
+
+.#{$index-name}-fst {
+    z-index: $index-first;
+}
+
+.#{$index-name}-lst {
+    z-index: $index-last;
+}

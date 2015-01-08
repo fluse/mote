@@ -1,0 +1,57 @@
+{
+
+    "color-text-list": {
+        "wht": "#fff",
+        "blc": "#000"
+    },
+
+    "color-background-list": {
+        "wht": "#fff",
+        "blc": "#000"
+    },
+
+    "color-hover-list": {
+        "wht": "#fff",
+        "blc": "#000"
+    },
+
+    "color-border-list": {
+        "wht": "#fff"
+    },
+
+    "color-gradient-list": {
+        "wht": {
+            "fst": "#fff",
+            "scd": "#fff"
+        },
+        "blk": {
+            "fst": "#000",
+            "scd": "#000"
+        }
+    },
+
+    "color-form-placeholder": "#ccd1d9",
+
+    "color-button": {
+        "red": "#72BF7B"
+    },
+
+    "color-tip-text": "#707070",
+    "color-tip-background": "#fff",
+
+    "color-badge": {
+        "default": "#72BF7B",
+        "notice": "#3B3F45",
+        "info": "#f39c12",
+        "warning": "#e74c3c"
+    },
+
+    "color-divider": {
+        "wht": "#fff"
+    },
+
+    "color-offcanvas": "#fff",
+
+    "color-form-error": "#e9573e",
+    "color-form-focus": "#3bafda"
+}

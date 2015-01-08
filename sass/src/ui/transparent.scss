@@ -1,0 +1,78 @@
+/*
+ * bgt = background-color transparents
+ */
+
+[class*='bgt-'] {
+    background: transparent\9;
+    @if #{map-get($browser, ie)} < 8 {
+        *zoom: 1;
+    }
+}
+
+[class*='bgt-']:nth-child(n) {
+    -webkit-filter: none;
+            filter: none;
+}
+
+@each $transparency in $background-transparency-list {
+
+    .#{$background-transparency-name}-#{$transparency} {
+        $trans: ($transparency / 10);
+        $penis: "0.#{$trans}";
+        opacity: #{$penis};
+    }
+
+}
+
+/*
+ * wht = white
+ */
+
+[class*='bgt-wht-'] {
+    background: rgb(255, 255, 255);
+}
+
+.bgt-wht-40 {
+    background-color: rgba(255, 255, 255, 0.4);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff);
+}
+
+.bgt-wht-60 {
+    background: rgba(255, 255, 255, 0.6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99ffffff, endColorstr=#99ffffff);
+}
+
+.bgt-wht-80 {
+    background-color: rgba(255, 255, 255, 0.8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99ffffff, endColorstr=#99ffffff);
+}
+
+[class*='bgt-blc-'] {
+    background: transparent\9;
+    @if #{map-get($browser, ie)} < 8 {
+        *zoom: 1;
+    }
+}
+
+/*
+ * blc = black
+ */
+
+[class*='bgt-blc-'] {
+    background: rgb(0, 0, 0);
+}
+
+.bgt-blc-40 {
+    background: rgba(0, 0, 0, 0.4);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+}
+
+.bgt-blc-60 {
+    background: rgba(0, 0, 0, 0.6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+}
+
+.bgt-blc-80 {
+    background: rgba(0, 0, 0, 0.8);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+}

@@ -1,0 +1,61 @@
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+
+    overflow-x: auto\9;
+}
+
+body {
+    font: #{$baseScale} #{$font-families} #{checkSerif()};
+    font-weight: #{$font-weight};
+    color: #{$baseTxtColor};
+    position: relative;
+    background-color: #{$baseColor};
+}
+
+[hidden] {
+    display: none;
+}
+
+[disabled] {
+    @include opacity($disableOpacity);
+}
+
+blockquote {
+    quotes: "#{$quotes}";
+}
+
+blockquote:before {
+    content: open-quote;
+}
+
+blockquote:after {
+    content: close-quote;
+}
+
+a[href],
+a[href] *,
+[route],
+[toggle],
+label[for],
+body .pnr,
+select, button,
+input[type='submit'] {
+    cursor: pointer;
+    color: inherit;
+}
+
+p, i, strong, u, a, span, li, h1, h2, h3, h4, h5, li {
+    font-weight: inherit;
+    line-height: 1.1;
+    white-space: normal;
+    vertical-align: baseline;
+}
+
+img {
+    -ms-interpolation-mode: bicubic;
+}
+
+::-ms-clear {
+    display: none;
+}

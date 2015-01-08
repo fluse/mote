@@ -1,0 +1,9 @@
+.static {
+    display: none;
+}
+
+.nojs {
+    .static {
+        display: block;
+    }
+}

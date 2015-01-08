@@ -1,0 +1,19 @@
+@for $i from 1 through length($height-list) {
+
+    $item: nth($height-list, $i);
+
+    .#{$height-name}-#{$item} {
+        height: #{$item}#{map-get($unit, height)};
+    }
+
+}
+
+@for $i from 1 through length($line-height-list) {
+
+    $item: nth($line-height-list, $i);
+
+    .#{$line-height-name}-#{$item} {
+        line-height: #{$item}#{map-get($unit, height)};
+    }
+
+}

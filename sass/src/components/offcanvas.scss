@@ -1,0 +1,19 @@
+.offcanvas {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $color-offcanvas;
+
+    &.active {
+        display: block;
+    }
+}
+
+.offcanvas-page {
+    position: fixed;
+    -webkit-transition: margin-left 0.3s ease-in-out;
+    transition: margin-left 0.3s ease-in-out;
+}

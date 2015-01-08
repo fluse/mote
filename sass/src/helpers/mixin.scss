@@ -1,0 +1,105 @@
+@mixin font-size ($size) {
+
+    @if map-get($browser, ie) < 9 {
+        font-size: #{$size}px;
+    }
+
+    font-size: calculateUnit($size);
+}
+
+@mixin calculateRem ($entity, $size) {
+
+    @if map-get($browser, ie) < 9 {
+        #{$entity}: #{$size}px;
+    }
+
+    #{$entity}: calculateUnit($size);
+}
+
+@mixin opacity ($opacity) {
+
+    opacity: $opacity;
+
+    @if #{map-get($browser, ie)} < 9 {
+
+        $opacity-ie: $opacity * 100;
+        filter: alpha(opacity = $opacity-ie);
+
+    }
+
+}
+
+@mixin respond-to ($breakpoint) {
+
+    @if map-has-key($break-points-list, $breakpoint) {
+        @media (min-width: #{map-get($break-points-list, $breakpoint)}) {
+            @content;
+        }
+
+        @media (min-width: #{map-get($break-points-list, $breakpoint)}) and (-webkit-device-pixel-ratio: 2) {
+            @content;
+        }
+
+        @media (min-width: #{map-get($break-points-list, $breakpoint)}) and (-webkit-device-pixel-ratio: 3) {
+            @content;
+        }
+
+    }
+
+    @else {
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$break-points` map.";
+    }
+}
+
+@mixin vendor-prefix ($name, $argument) {
+
+    -webkit-#{$name}: #{$argument};
+    -moz-#{$name}: #{$argument};
+    -ms-#{$name}: #{$argument};
+    @if map-get($browser, opera) > 0 {
+        -o-#{$name}: #{$argument};
+    }
+    #{$name}: #{$argument};
+
+}
+
+@mixin font-face ($name, $weight: normal, $style: normal) {
+
+    $ie: #{map-get($browser, ie)};
+    @font-face {
+        font-family: $name;
+        @if #{$ie} < 10 {
+            src: url('#{$font-path}.eot'); // IE9 compat
+        }
+        src: url('#{$font-path}#{$name}.eot?#iefix') format('embedded-opentype'), // IE8 and below
+        url('#{$font-path}#{$name}.woff') format('woff'), // standards
+        url('#{$font-path}#{$name}.ttf') format('truetype'), // Safari, Android, iOS
+        url('#{$font-path}#{$name}.svg##{$name}') format('svg'); // legacy iOS
+
+        font-style: $style;
+        font-weight: $weight;
+    }
+
+}
+
+@mixin rgba-background ($hexcolor, $opacity) {
+    background-color: rgba($hexcolor, $opacity);
+}
+
+@mixin animationDelay ($delay) {
+    -webkit-animation-delay: $delay;
+    -moz-animation-delay:    $delay;
+    -ms-animation-delay:     $delay;
+    animation-delay:         $delay;
+}
+
+@mixin linear-gradient($fromColor, $toColor) {
+    background-color: $toColor; /* Fallback Color */
+    background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+    background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+    background-image:         linear-gradient(top, $fromColor, $toColor);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$fromColor}', endColorstr='#{$toColor}',GradientType=0 );
+}

@@ -1,0 +1,114 @@
+/*
+ * psn = position
+ *
+ * -fxd = fixed
+ * -rel = relative
+ * -abs = absolute
+ * -stc = absolute
+ *
+ * inner positions
+ *
+ * -cnr-top = center inner top
+ * -cnr-btm = center inner bottom
+ * -top     = top: 0;
+ * -top-rgt = top: 0; right: 0;
+ * -top-lft = top: 0; left: 0;
+ * -rgt     = right: 0;
+ * -btm     = bottom: 0;
+ * -btm-rgt = bottom: 0; right: 0;
+ * -btm-lft = bottom: 0; left: 0;
+ * -lft     = left: 0;
+ *
+ * outer positions
+ *
+ * -out-cnr-top = center outer top
+ * -out-cnr-btm = center outer bottom
+ * -out-top = bottom: 100%;
+ * -out-rgt = left: 100%;
+ * -out-btm = top: 100%;
+ * -out-lft = right: 100%;
+ *
+ + -fll = full top: 0; left: 0; right: 0; bottom: 0;
+ * example: class="psn-top-cnr-fxd"
+ */
+
+[class*='abs'], .abs {
+    position: absolute;
+}
+
+.rel,
+.rel-all *,
+.rel-each > * {
+    position: relative;
+}
+
+.fxd {
+    position: fixed;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+[class*='stc'] {
+    position: static;
+}
+
+/* outer positions */
+
+[class*='psn-out-btm'],
+[class*='psn-out-cnr-btm'] {
+    top: 100%;
+}
+
+[class*='psn-out-lft'] {
+    right: 100%;
+}
+
+[class*='psn-out-top'],
+[class*='psn-out-cnr-top'] {
+    bottom: 100%;
+}
+
+[class*='psn-out-rgt'] {
+    left: 100%;
+}
+
+/* inner positions */
+
+[class*='psn-fll'],
+[class*='psn-out-rgt'],
+[class*='psn-out-lft'],
+[class*='psn-cnr-top'],
+[class*='psn-cnr-lft'],
+[class*='psn-cnr-rgt'],
+[class*='psn-top'] {
+    top: 0;
+}
+
+[class*='psn-fll'],
+[class*='psn-rgt'],
+[class*='psn-btm-rgt'],
+[class*='psn-top-rgt'],
+[class*='psn-out-cnr'],
+[class*='psn-cnr-rgt'],
+[class*='psn-out-top-rgt'],
+[class*='psn-out-btm-rgt'] {
+    right: 0;
+}
+
+[class*='psn-btm'],
+[class*='psn-fll'],
+[class*='psn-cnr-lft'],
+[class*='psn-cnr-rgt'],
+[class*='psn-cnr-btm'] {
+    bottom: 0;
+}
+
+[class*='psn-lft'],
+[class*='psn-fll'],
+[class*='psn-cnr-lft'],
+[class*='psn-btm-lft'],
+[class*='psn-top-lft'],
+[class*='psn-out-cnr'] {
+    left: 0;
+}

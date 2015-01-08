@@ -1,0 +1,186 @@
+{
+    "top": "top",
+    "left": "lft",
+    "right": "rgt",
+    "bottom": "btm",
+    "horizontal": "hzn",
+    "vertical": "vrt",
+
+    "baseScale": "62.5%",
+    "disableOpacity": "0.4",
+
+    "baseColor": "#f1f2f6",
+    "baseTxtColor": "#434a54",
+
+    "unit": {
+        "default": "\"rem\"",
+        "font": "\"rem\"",
+        "width": "\"%\"",
+        "border": "\"px\"",
+        "height": "\"px\""
+    },
+
+    "browser": {
+        "ie": "8",
+        "chrome": "10",
+        "firefox": "10",
+        "safari": "7",
+        "opera": "0"
+    },
+
+    "grid": {
+        "count": "12",
+        "max-width": "1000px",
+        "name": "grd"
+    },
+
+    "break-points-active": "true",
+
+    "break-points-list": {
+        "s": "320px",
+        "m": "640px",
+        "l": "768px",
+        "xl": "1000px"
+    },
+
+    "cursor-name": "csr",
+
+    "cursor-list": {
+        "ato": "auto",
+        "dft": "default",
+        "pnt": "pointer",
+        "hlp": "help",
+        "txt": "text"
+    },
+
+    "animation-active": "true",
+    "animation-name": "ani",
+    "animation-duration-list": "50 100 200 300 400 500 600 700 800 900 1000 1200 1500",
+    "animation-duration-name": "dur",
+    "animation-delay-name": "stg",
+    "animation-delay-interval": ".1s",
+    "animation-delay-itemLength": "20",
+
+    "width-name": "wdt",
+    "width-list": "5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100",
+
+    "width-static-name": "wds",
+    "width-static-list": "20 40 50 60 80 100 150 200 250 300 400 500",
+
+    "height-name": "hgt",
+    "height-list": "40 50 60 70 80 90 100 120 150 200 250 285 330 800",
+
+    "line-height-name": "lnh",
+    "line-height-list": "15 20 25 30 25 40 45",
+
+    "font-path": "'%fontPath%/font/'",
+    "font-serif": "false",
+    "font-list": "false",
+    "font-google-list": {
+        "Roboto": "100 300 400"
+    },
+    "font-families": "Roboto, verdana,",
+    "font-weight": "300",
+
+    "background-transparency-name": "bgt",
+    "background-transparency-list": "40 50 60 70 80 90",
+
+    "web-fonts-protocol": "https",
+
+    "font-size-name": "fsi",
+    "font-size-list": "8 9 10 11 12 13 14 15 16 18 20 22 26 25 28 30 36 40 50 60 70",
+
+    "font-scale-name": "fsc",
+    "font-scale-active": "true",
+    "font-scale-list": "200 170 150 120 90 80 70 60",
+
+    "font-weight-name": "fwe",
+    "font-weight-active": "true",
+    "font-weight-list": "100 200 300 400",
+
+    "icon-name": "icn",
+
+    "icon-font-list": ["default"],
+
+    "icon-size": {
+        "s": "150%",
+        "m": "200%",
+        "l": "250%"
+    },
+
+    "gradient-name": "bgg",
+
+    "sprite-name": "spr",
+    "sprite-list": {
+        "default": "default"
+    },
+
+    "shadow-name": "bxs",
+    "shadow-list": {
+        "s": {
+            "position": "0 0 2px 1px",
+            "opacity": "0.2"
+        },
+        "m": {
+            "position": "0 0 5px 2px",
+            "opacity": "0.2"
+        },
+        "l": {
+            "position": "0 0 2px 3px",
+            "opacity": "0.09"
+        }
+    },
+
+    "hover-name": "hvr",
+
+    "padding-name": "pdg",
+    "padding-list": "1 2 3 4 5 6 7 8 9 10 12 15 17 20 25 30 35 40 45 50 60",
+
+    "margin-name": "mgn",
+    "margin-list": "1 2 3 4 5 6 7 8 9 10 12 15 17 20 25 30 35 40 50 60 70",
+
+    "border-name": "brs",
+    "border-list": {
+        "s": "1",
+        "m": "2",
+        "l": "4"
+    },
+
+    "border-radius-name": "rnd",
+    "border-radius-list": {
+        "s": "3",
+        "m": "5",
+        "l": "8"
+    },
+
+    "index-name": "zdx",
+    "index-list": "1 2 3 4 5 6 7 8 9 10",
+    "index-first": "-1",
+    "index-last": "9999",
+
+    "toggle-name": "toggle",
+    "toggle-color-active": "#8dc153",
+    "toggle-color-inactive": "grey",
+
+    "filter-active": "true",
+
+    "checkbox-name": "checkbox",
+    "checkbox-color-inactive": "#aab2bd",
+    "checkbox-text-active": "#fff",
+    "checkbox-color-active": "#8cc152",
+
+    "slider-name": "irs",
+    "slider-color-diapason": "#8ec13a",
+    "slider-color-grap": "#aab2bd",
+    "slider-color-line": "#ccd0da",
+
+    "layer-color-background": "#434a54",
+    "layer-color-content-background": "#f1f2f6",
+
+    "badge-name": "badge",
+
+    "quotes": "'“' '”' '‘' '’'",
+
+    "form-font-size": "16px",
+    "float-label-font-size": "16px"
+}

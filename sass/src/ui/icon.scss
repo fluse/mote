@@ -1,0 +1,24 @@
+/*
+ * #{$icon-name} = icons
+ *
+ */
+
+[class*='#{$icon-name}-'] {
+    position: relative;
+    display: inline-block;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@each $name, $value in $icon-size {
+
+    .#{$icon-name}-#{$name}:before {
+        font-size: #{$value};
+    }
+
+}
+
+/*%iconFont%*/

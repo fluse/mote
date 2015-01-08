@@ -1,0 +1,56 @@
+/*
+ * lyr = layer
+ *
+ * settings
+ * -fxd = fixed
+ * -abs = absolute
+ *
+ */
+
+[class*=lyr-] {
+    @extend .psn-fll !optional;
+    width: 100%;
+    height: 100%;
+    @extend .cnr !optional;
+
+    @include rgba-background($layer-color-background, 0.8);
+
+    @extend .zdx-last !optional;
+
+    &.closable {
+        @extend .csr-pnt !optional;
+
+        .close {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+    }
+
+    * {
+        @extend .csr-dft !optional;
+    }
+
+    .content {
+        @extend .rel !optional;
+        top: 50%;
+        @extend .dsp-ibk !optional;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        background-color: #{$layer-color-content-background};
+    }
+}
+
+[class*=lyr-fxd-bg]:nth-child(n),
+[class*=lyr-abs-bg]:nth-child(n) {
+    -webkit-filter: none;
+    filter: none;
+}
+
+[class*=lyr-fxd] {
+    overflow-x: auto;
+    -webkit-transform: translateZ(0);
+    -webkit-overflow-scrolling: touch;
+}

@@ -1,0 +1,94 @@
+/*
+ * Padding Settings
+ *
+ * #{$padding-name} = padding
+ *
+ * -#{$vertical} = vertical
+ * -#{$horizontal} = horizon
+ *
+ * -#{top} = top
+ * -#{$bottom} = bottom
+ * -#{$left} = left
+ * -#{$right} = right
+ *
+ * -each                            = [ul|each][li][li][/each]
+ * -each-child-first    = [ul|each][li][y][n][li][y][n][/each]
+ * -all                             = [ul|each][li][y][y][y][li][y][y][/each]
+ * -no                                = reset this style
+ *
+ */
+
+@each $size in $padding-list {
+
+    .#{$padding-name}-#{$size},
+    .#{$padding-name}-#{$size}-each > *,
+    .#{$padding-name}-#{$size}-scd * > *,
+    .#{$padding-name}-#{$size}-owl > * + * {
+        @include calculateRem('padding', $size);
+    }
+
+    .#{$padding-name}-#{$top}-#{$size},
+    .#{$padding-name}-#{$top}-#{$size}-each > *,
+    .#{$padding-name}-#{$top}-#{$size}-owl > * + *,
+    .#{$padding-name}-#{$horizontal}-#{$size},
+    .#{$padding-name}-#{$horizontal}-#{$size}-each > *,
+    .#{$padding-name}-#{$horizontal}-#{$size}-scd * > *,
+    .#{$padding-name}-#{$horizontal}-#{$size}-owl > * + * {
+        @include calculateRem('padding-top', $size);
+    }
+
+    .#{$padding-name}-#{$right}-#{$size},
+    .#{$padding-name}-#{$right}-#{$size}-each > *,
+    .#{$padding-name}-#{$right}-#{$size}-owl > * + *,
+    .#{$padding-name}-#{$vertical}-#{$size},
+    .#{$padding-name}-#{$vertical}-#{$size}-each > *,
+    .#{$padding-name}-#{$vertical}-#{$size}-scd * > *,
+    .#{$padding-name}-#{$vertical}-#{$size}-owl > * + * {
+        @include calculateRem('padding-right', $size);
+    }
+
+    .#{$padding-name}-#{$bottom}-#{$size},
+    .#{$padding-name}-#{$bottom}-#{$size}-each > *,
+    .#{$padding-name}-#{$bottom}-#{$size}-owl > * + *,
+    .#{$padding-name}-#{$horizontal}-#{$size},
+    .#{$padding-name}-#{$horizontal}-#{$size}-each > *,
+    .#{$padding-name}-#{$horizontal}-#{$size}-scd * > *,
+    .#{$padding-name}-#{$horizontal}-#{$size}-owl > * + * {
+        @include calculateRem('padding-bottom', $size);
+    }
+
+    .#{$padding-name}-#{$left}-#{$size},
+    .#{$padding-name}-#{$left}-#{$size}-each > *,
+    .#{$padding-name}-#{$left}-#{$size}-owl > * + *,
+    .#{$padding-name}-#{$vertical}-#{$size},
+    .#{$padding-name}-#{$vertical}-#{$size}-each > *,
+    .#{$padding-name}-#{$vertical}-#{$size}-scd * > *,
+    .#{$padding-name}-#{$vertical}-#{$size}-owl > * + * {
+        @include calculateRem('padding-left', $size);
+    }
+
+}
+
+/*
+ * reset padding
+ */
+
+body .#{$padding-name}-non {
+    padding: 0;
+}
+
+body .#{$padding-name}-non-#{$top} {
+    padding-top: 0;
+}
+
+body .#{$padding-name}-non-#{$right} {
+    padding-right: 0;
+}
+
+body .#{$padding-name}-non-#{$bottom} {
+    padding-bottom: 0;
+}
+
+body .#{$padding-name}-non-#{$left} {
+    padding-left: 0;
+}

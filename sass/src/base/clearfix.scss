@@ -1,0 +1,13 @@
+.clr:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.clr-lft {
+    clear: left;
+}
+
+.clr-rgt {
+    clear: right;
+}

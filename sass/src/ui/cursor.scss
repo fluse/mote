@@ -1,0 +1,13 @@
+/*
+ * #{$cursor-name} = cursor
+ */
+
+@each $name, $value in $cursor-list {
+
+    .#{$cursor-name}-#{$name},
+    .#{$cursor-name}-#{$name}-each > *,
+    .#{$cursor-name}-#{$name}-scd * > * {
+        cursor: #{$value};
+    }
+
+}

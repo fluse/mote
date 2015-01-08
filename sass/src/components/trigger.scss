@@ -1,0 +1,12 @@
+.trigger {
+
+    .target {
+        @extend .dsp-non !optional;
+    }
+
+    :checked ~ .target {
+        @extend .dsp-blk !optional;
+    }
+
+}
+

@@ -1,0 +1,185 @@
+
+.#{$slider-name} {
+    height: 80px;
+    position: relative;
+    display: block;
+}
+
+.#{$slider-name}-line {
+    position: relative;
+    height: 6px;
+    display: block;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.#{$slider-name}-line-left, .#{$slider-name}-line-mid, .#{$slider-name}-line-right {
+    position: absolute;
+    top: 0;
+    display: block;
+    height: 8px;
+    background-color: #{$slider-color-line};
+}
+
+.#{$slider-name}-line-left {
+    left: 0;
+    width: 10%;
+}
+
+.#{$slider-name}-line-mid {
+    left: 9%;
+    width: 82%;
+}
+
+.#{$slider-name}-line-right {
+    right: 0;
+    width: 10%;
+}
+
+.#{$slider-name}-diapason {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 6px;
+    background-color: #{$slider-color-diapason};
+}
+
+.#{$slider-name}-slider {
+    position: absolute;
+    display: block;
+    cursor: default;
+    z-index: 1;
+    top: -7px;
+    height: 20px;
+    width: 10px;
+    border-radius: 3px;
+    background-color: #{$slider-color-grap};
+    cursor: pointer;
+}
+
+.#{$slider-name}-slider.single {
+    left: 10px;
+}
+
+.#{$slider-name}-slider.single:before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: rgba(0, 0, 0, 0.0);
+}
+
+.#{$slider-name}-slider.from {
+    left: 100px;
+}
+
+.#{$slider-name}-slider.from:before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: -30%;
+    left: -30%;
+    width: 130%;
+    height: 160%;
+}
+
+.#{$slider-name}-slider.to {
+    left: 300px;
+}
+
+.#{$slider-name}-slider.to:before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: -30%;
+    left: 0;
+    width: 130%;
+    height: 160%;
+}
+
+.#{$slider-name}-slider.last {
+    z-index: 2;
+}
+
+.#{$slider-name}-min {
+    position: absolute;
+    display: block;
+    left: 0;
+    cursor: default;
+}
+
+.#{$slider-name}-max {
+    position: absolute;
+    display: block;
+    right: 0;
+    cursor: default;
+}
+
+.#{$slider-name}-from, .#{$slider-name}-to, .#{$slider-name}-single {
+    @include font-size(14);
+    position: absolute;
+    display: block;
+    top: 20px;
+    left: 0;
+    cursor: default;
+    white-space: nowrap;
+}
+
+.#{$slider-name}-grid {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+}
+
+.#{$slider-name}-with-grid .#{$slider-name}-grid {
+    display: block;
+}
+
+.#{$slider-name}-grid-pol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 8px;
+    background: #000;
+}
+
+.#{$slider-name}-grid-pol.small {
+    height: 4px;
+}
+
+.#{$slider-name}-grid-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 9px;
+    line-height: 9px;
+    color: #000;
+}
+
+.#{$slider-name}-disable-mask {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    background: rgba(0, 0, 0, 0.0);
+    z-index: 2;
+}
+
+.#{$slider-name}-disabled {
+    opacity: 0.4;
+}

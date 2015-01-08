@@ -1,0 +1,92 @@
+/*
+ * #{$border-name} = border style
+ *
+ * -sld = solid
+ * -dtd = dotted
+ *
+ * -t = top
+ * -b = bottom
+ * -l = left
+ * -r = right
+ *
+ * -[1|2|3] = border-width
+ *
+ * example: class="#{$border-name}-s-t-2"
+ */
+
+$unit-border: #{map-get($unit, border)};
+
+.#{$border-name}-sld {
+    border: 1#{$unit-border} solid transparent;
+}
+
+.#{$border-name}-dtd {
+     border: 1#{$unit-border} dotted transparent;
+}
+
+[class*=#{$border-name}-sld] {
+    border-style: solid;
+}
+
+[class*=#{$border-name}-dtd] {
+    border-style: dotted;
+}
+
+/* brs-sld-1-btm */
+
+@each $name, $size in $border-list {
+
+    $size-with-unit: #{$size}#{$unit-border};
+
+    .#{$border-name}-sld-#{$name},
+    .#{$border-name}-dtd-#{$name},
+    .#{$border-name}-sld-#{$name}-owl > * + *, {
+        border-width: #{$size-with-unit};
+    }
+
+    .#{$border-name}-sld-#{$name}-#{$top},
+    .#{$border-name}-dtd-#{$name}-#{$top} {
+        border-top-width: #{$size-with-unit};
+    }
+
+    .#{$border-name}-sld-#{$name}-#{$right},
+    .#{$border-name}-sld-#{$name}-#{$right}-owl > * + *,
+    .#{$border-name}-dtd-#{$name}-#{$right} {
+        border-right-width: #{$size-with-unit};
+    }
+
+    .#{$border-name}-sld-#{$name}-#{$bottom},
+    .#{$border-name}-sld-#{$name}-#{$bottom}-owl > * + *,
+    .#{$border-name}-dtd-#{$name}-#{$bottom} {
+        border-bottom-width: #{$size-with-unit};
+    }
+
+    .#{$border-name}-sld-#{$name}-#{$left},
+    .#{$border-name}-sld-#{$name}-#{$left}-owl > * + *,
+    .#{$border-name}-dtd-#{$name}-#{$left} {
+        border-left-width: #{$size-with-unit};
+    }
+
+}
+
+/* reset border styles */
+
+body .#{$border-name}-non {
+    border: none;
+}
+
+body .#{$border-name}-#{$top}-non {
+    border-top: none;
+}
+
+body .#{$border-name}-#{$right}-non {
+    border-right: none;
+}
+
+body .#{$border-name}-#{$bottom}-non {
+    border-bottom: none;
+}
+
+body .#{$border-name}-#{$left}-non {
+    border-left: none;
+}

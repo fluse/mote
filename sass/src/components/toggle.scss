@@ -1,0 +1,51 @@
+.#{$toggle-name} {
+
+    @extend .rel !optional;
+    @extend .dsp-ibk !optional;
+    min-width: 1em;
+    line-height: 1em;
+    outline: 0;
+    vertical-align: middle;
+    @extend .csr-pnt !optional;
+
+    * {
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    input {
+        @extend .dsp-non !optional;
+    }
+
+    span {
+        @extend .rel !optional;
+        @extend .dsp-ibk !optional;
+        @extend .zdx-1 !optional;
+        @extend .bgc-wht !optional;
+        width: 3em;
+        height: 1.5em;
+        border-radius: 3em;
+        background-color: #{$toggle-color-inactive};
+
+        &:before {
+            @extend .abs !optional;
+            content: '';
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            border-radius: 50%;
+            @extend .bgc-wht !optional;
+        }
+    }
+
+    :checked ~ span {
+
+        background-color: #{$toggle-color-active};
+
+        &:before {
+            left: auto;
+            right: 0;
+        }
+    }
+}

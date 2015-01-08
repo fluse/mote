@@ -1,0 +1,105 @@
+/*
+ * import fonts
+ */
+
+@if $font-list != "false" {
+
+    @each $font in $font-list {
+
+        /*
+         * #{$font} = font-family
+         */
+
+        @include font-face(#{$font});
+
+        .#{$font} {
+            vertical-align: middle;
+            font-family: "#{$font}" !important;
+            font-style: normal !important;
+            font-weight: normal !important;
+            font-variant: normal !important;
+            text-transform: none !important;
+            speak: none;
+            -moz-osx-font-smoothing: grayscale;
+             -webkit-font-smoothing: antialiased;
+        }
+
+    }
+}
+
+/*
+ * #{$font-size-name} = font-size
+ */
+
+@each $size in $font-size-list {
+
+    .#{$font-size-name}-#{$size} {
+        @include font-size($size);
+    }
+
+}
+
+@if $font-scale-active {
+
+    $scale-unit: "%";
+
+    /*
+     * #{$font-scale-name} = font-scale
+     */
+
+    @each $scale in $font-scale-list {
+
+        .#{$font-scale-name}-#{$scale} {
+            font-size: #{$scale}#{$scale-unit};
+        }
+
+    }
+
+}
+
+@if $font-weight-active {
+
+    /*
+     * #{$font-scale-name} = font-scale
+     */
+
+    @each $weight in $font-weight-list {
+
+        .#{$font-weight-name}-#{$weight},
+        .#{$font-weight-name}-#{$weight}-each > * {
+            font-weight: #{$weight};
+        }
+
+    }
+
+}
+
+@if $font-google-list != false {
+    @each $font, $variation in $font-google-list {
+
+        $delimeter: unquote(',');
+
+        $sizesLength: length($variation);
+        $count: 0;
+        $sizes: "";
+
+        @each $size in $variation {
+            $count: $count + 1;
+
+            @if $count > 1 {
+                $sizes: #{$sizes}#{$delimeter}#{$size};
+            } @else {
+                $sizes: #{$size};
+            }
+        }
+
+        @import url("//fonts.googleapis.com/css?family=#{url-encode($font)}:#{$sizes}");
+
+        $fontNameUnescaped: to_lower_case($font);
+
+        .fnt-#{fontRename($fontNameUnescaped)} {
+            font-family: '#{$font}';
+        }
+    }
+
+}

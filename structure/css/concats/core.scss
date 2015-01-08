@@ -1,0 +1,56 @@
+/*
+ * mote base
+ */
+
+@import "%pathToSass%/src/base/clearfix";
+@import "%pathToSass%/src/base/reset";
+@import "%pathToSass%/src/base/general";
+@import "%pathToSass%/src/base/global";
+
+/*
+ * mote ui
+ */
+
+@import "%pathToSass%/src/ui/border";
+@import "%pathToSass%/src/ui/coloring";
+@import "%pathToSass%/src/ui/grid";
+@import "%pathToSass%/src/ui/font";
+@import "%pathToSass%/src/ui/form";
+@import "%pathToSass%/src/ui/icon";
+@import "%pathToSass%/src/ui/cursor";
+@import "%pathToSass%/src/ui/hover";
+@import "%pathToSass%/src/ui/position";
+@import "%pathToSass%/src/ui/radius";
+@import "%pathToSass%/src/ui/padding";
+@import "%pathToSass%/src/ui/margin";
+@import "%pathToSass%/src/ui/shadows";
+@import "%pathToSass%/src/ui/pattern";
+@import "%pathToSass%/src/ui/transparent";
+@import "%pathToSass%/src/ui/width";
+@import "%pathToSass%/src/ui/height";
+@import "%pathToSass%/src/ui/zindex";
+@import "%pathToSass%/src/ui/filter";
+@import "%pathToSass%/src/ui/animation";
+@import "%pathToSass%/src/ui/gradient";
+
+/*
+ * mote vendor
+ */
+
+/* @import "%pathToVendor%/sample"; */
+
+/*
+ * mote sprites
+ */
+
+/* for global sprite files */
+/* @import "%pathToSprite%/default"; */
+
+/* theme based sprites can define inside settings.json */
+/* "sprit
+
+/*
+ * noJS behaviors
+ */
+
+@import "%pathToSass%/src/base/nojs";

@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/*
+ * upper
+ *
+ * set data content as upper level element
+ *
+ * example: data-upper-after="qm"
+ * example: data-upper-before="°"
+ */
+
+[data-upper-after],
+[data-upper-before] {
+    position: relative;
+    display: inline-block;
+}
+
+[data-upper-before]:before,
+[data-upper-before]:after
+[data-upper-after]:before,
+[data-upper-after]:after {
+    font-size: 70%;
+    position: absolute;
+    bottom: 60%;
+}
+
+[data-upper-after]:after {
+    left: 100%;
+    content: attr(data-upper-after);
+}
+
+[data-upper-before]:before {
+    right: 100%;
+    content: attr(data-upper-before);
+}

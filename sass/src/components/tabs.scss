@@ -1,0 +1,52 @@
+.tabs {
+    @extend .rel !optional;
+
+    li {
+        @extend .flt-lft !optional;
+        @extend .dsp-blk !optional;
+    }
+
+    input[type="radio"] {
+        @extend .abs !optional;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    label {
+        @extend .dsp-blk !optional;
+        @extend .csr-pnt !optional;
+        @extend .rel !optional;
+
+        border-radius: 2px 2px 0 0;
+
+        @extend .fsi-20;
+        font-weight: normal;
+
+        @include vendor-prefix("transition", all 0.2s ease-in-out);
+
+        &:hover {
+
+        }
+    }
+
+    .tab-content {
+        z-index: 2;
+        display: none;
+        overflow: hidden;
+        width: 100%;
+        @extend .fsi-16 !optional;
+        line-height: 25px;
+        @extend .pdg-25 !optional;
+        @extend .abs !optional;
+        top: 100%;
+        left: 0;
+    }
+
+    //The Magic
+    [id^="tab"]:checked + label {
+
+    }
+    [id^="tab"]:checked ~ [id^="tab-content"] {
+        @extend .dsp-blk !optional;
+    }
+}

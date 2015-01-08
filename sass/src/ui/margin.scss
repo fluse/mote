@@ -1,0 +1,103 @@
+/*
+ * Margin Settings
+ *
+ * #{$margin-name} = margin
+ *
+ * -#{$vertical} = vertical
+ * -#{$horizontal} = horizon
+ *
+ * -#{top} = top
+ * -#{$bottom} = bottom
+ * -#{$left} = left
+ * -#{$right} = right
+ *
+ * -each              = [ul|each][li][li][/each]
+ * -fst-chd  = [ul|each][li][y][n][li][y][n][/each]
+ * -no                = reset this style
+ *
+ */
+
+@each $size in $margin-list {
+
+    .#{$margin-name}-#{$size},
+    .#{$margin-name}-#{$size}-each > *,
+    .#{$margin-name}-#{$size}-scd * > *,
+    .#{$margin-name}-#{$size}-owl > * + * {
+        @include calculateRem('margin', $size);
+    }
+
+    .#{$margin-name}-#{$top}-#{$size},
+    .#{$margin-name}-#{$top}-#{$size}-each > *,
+    .#{$margin-name}-#{$top}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$horizontal}-#{$size},
+    .#{$margin-name}-#{$horizontal}-#{$size}-each > *,
+    .#{$margin-name}-#{$horizontal}-#{$size}-scd * > *,
+    .#{$margin-name}-#{$horizontal}-#{$size}-owl > * + * {
+        @include calculateRem('margin-top', $size);
+    }
+
+    .#{$margin-name}-#{$right}-#{$size},
+    .#{$margin-name}-#{$right}-#{$size}-each > *,
+    .#{$margin-name}-#{$right}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$vertical}-#{$size},
+    .#{$margin-name}-#{$vertical}-#{$size}-each > *
+    .#{$margin-name}-#{$vertical}-#{$size}-scd * > *,
+    .#{$margin-name}-#{$vertical}-#{$size}-owl > * + * {
+        @include calculateRem('margin-right', $size);
+    }
+
+    .#{$margin-name}-#{$bottom}-#{$size},
+    .#{$margin-name}-#{$bottom}-#{$size}-each > *,
+    .#{$margin-name}-#{$bottom}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$horizontal}-#{$size},
+    .#{$margin-name}-#{$horizontal}-#{$size}-each > *,
+    .#{$margin-name}-#{$horizontal}-#{$size}-scd * > *,
+    .#{$margin-name}-#{$horizontal}-#{$size}-owl > * + * {
+        @include calculateRem('margin-bottom', $size);
+    }
+
+    .#{$margin-name}-#{$left}-#{$size},
+    .#{$margin-name}-#{$left}-#{$size}-each > *,
+    .#{$margin-name}-#{$left}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$vertical}-#{$size},
+    .#{$margin-name}-#{$vertical}-#{$size}-each > *,
+    .#{$margin-name}-#{$vertical}-#{$size}-scd * > *,
+    .#{$margin-name}-#{$vertical}-#{$size}-owl > * + * {
+        @include calculateRem('margin-left', $size);
+    }
+
+}
+
+/*
+ * margin special
+ */
+
+body .#{$margin-name}-cnr {
+    float: none !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+ * reset margin
+ */
+
+body .#{$margin-name}-non {
+    margin: 0;
+}
+
+body .#{$margin-name}-non-#{$top} {
+    margin-top: 0;
+}
+
+body .#{$margin-name}-non-#{$right} {
+    margin-right: 0;
+}
+
+body .#{$margin-name}-non-#{$bottom} {
+    margin-bottom: 0;
+}
+
+body .#{$margin-name}-non-#{$left} {
+    margin-left: 0;
+}

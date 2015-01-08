@@ -1,0 +1,79 @@
+/*
+ * #{map-get($grid, name)}       = grid
+ *
+ * #{map-get($unit, width)} units = from 1 to $grid-count
+ */
+
+$name: map-get($grid, name);
+$count: map-get($grid, count);
+
+.frm {
+    width: 100%;
+}
+
+.frm-max {
+    max-width: map-get($grid, max-width);
+    @extend .mgn-cnr;
+}
+
+.frm:after,
+.frm-max:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+[class*=#{$name}],
+[class*=#{$name}-each] > * {
+    @extend .flt-lft;
+}
+
+$count: ($count + 1);
+
+@for $i from 1 to $count {
+
+    $grid: (100 / $i)#{map-get($unit, width)};
+
+    .#{$name}-#{$i},
+    .#{$name}-each-#{$i} > * {
+        width: #{$grid};
+
+            @include respond-to(s) {
+                width: 100%;
+            }
+
+            @include respond-to(m) {
+                @if $i < 4 {
+                    width: #{$grid};
+                } @else {
+                    @if even($i) {
+                        $newWidth: (100 / $i * 2)#{map-get($unit, width)};
+                        width: $newWidth;
+                    } @else {
+                        @if $i == 1 {
+                            width: 100%;
+                        } @else {
+                            $cleanedI: ($i - 1);
+                            $newWidth: (100 / $cleanedI * 2)#{map-get($unit, width)};
+                            width: $newWidth;
+                        }
+                    }
+                }
+            }
+
+            $grid: (100 / $i)#{map-get($unit, width)};
+            @include respond-to(l) {
+                width: #{$grid};
+            }
+
+    }
+
+}
+
+.grd-vrt,
+.grd-vrt-each > *,
+.grd-vrt-scd * > * {
+    @extend .rel;
+    top: 50%;
+    @include vendor-prefix(transform, translateY(-50%));
+}

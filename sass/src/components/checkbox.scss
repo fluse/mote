@@ -1,0 +1,61 @@
+.#{$checkbox-name} {
+
+    display: block;
+    position: relative;
+    min-width: 1em;
+    line-height: 1em;
+    outline: 0;
+    vertical-align: middle;
+    cursor: pointer;
+
+    * {
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    input {
+        display: none;
+    }
+
+    span {
+        text-align: center;
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        margin-right: 5px;
+        padding: 0 2px;
+        width: 15px;
+        height: 15px;
+        border-radius: 3px;
+        overflow: hidden;
+        color: #{$checkbox-color-inactive};
+        background-color: #{$checkbox-color-inactive};
+        transition: all 0.1s ease-out;
+    }
+
+    span[class*='#{$icon-name}-'] {
+        top: -1px;
+        padding: 0 2px;
+        width: auto;
+        height: auto;
+    }
+
+    span:before {
+        text-align: center;
+        position: relative;
+        left: -100px;
+        top: -1px;
+        font-size: 80%;
+        transition: all 0.2s ease-in;
+    }
+
+    :checked ~ span {
+        color: #{$checkbox-text-active};
+        background-color: #{$checkbox-color-active};
+    }
+
+    :checked ~ span:before {
+        left: 0;
+        transition: all 0.2s ease-out;
+    }
+}

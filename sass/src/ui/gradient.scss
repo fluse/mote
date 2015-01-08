@@ -1,0 +1,8 @@
+
+@each $key, $gradientObj in $color-gradient-list {
+
+    .#{$gradient-name}-#{$key} {
+        @include linear-gradient(map-get($gradientObj, fst), map-get($gradientObj, scd));
+    }
+
+}

@@ -1,0 +1,171 @@
+/*
+ * Global Classes
+ */
+
+.cnr,
+.txt-cnr,
+.txt-cnr-each > * {
+    text-align: center;
+}
+
+.txt-hde {
+    text-indent: -99999px;
+}
+
+.txt-lft {
+    text-align: left;
+}
+
+.txt-rgt {
+    text-align: right;
+}
+
+.txt-bld,
+.txt-bld-all *,
+.txt-bld-each > *,
+[class*='-bld']:hover {
+    font-weight: bold;
+}
+
+body .txt-bse,
+body .txt-bse-all *,
+body .txt-bse-each > * {
+    vertical-align: baseline;
+}
+
+.txt-mdl,
+.txt-mdl-all *,
+.txt-mdl-each > * {
+    vertical-align: middle;
+}
+
+.txt-top,
+.txt-top-all *,
+.txt-top-each > * {
+    vertical-align: top;
+}
+
+body .txt-btm,
+body .txt-btm-all *,
+body .txt-btm-each > * {
+    vertical-align: bottom;
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+.lower {
+    text-transform: lowercase;
+}
+
+.txt-itc {
+    font-style: italic;
+}
+
+.txt-ndn,
+.txt-ndn-all *,
+.txt-ndn-each > *,
+[class*='-nln']:hover {
+    text-decoration: underline;
+}
+
+.txt-srk,
+.txt-srk-all *,
+.txt-srk-each > *,
+[class*='-srk']:hover {
+    text-decoration: line-through;
+}
+
+.txt-nrl,
+.txt-nrl-all * {
+    font-weight: normal;
+    font-style: normal;
+}
+
+.txt-non,
+.txt-non-all *,
+.txt-non-each > *,
+[class*='-non']:hover {
+    text-decoration: none;
+}
+
+.flt-lft,
+.flt-lft-each > * {
+    float: left;
+}
+
+.flt-rgt,
+.flt-rgt-each > * {
+    float: right;
+}
+
+body .flt-non {
+    float: none;
+}
+
+.flw-hdn {
+    overflow: hidden;
+}
+
+.flw-vrt-hdn {
+    overflow-x: hidden;
+}
+
+.flw-hzn-hdn {
+    overflow-y: hidden;
+}
+
+.flw-ato {
+    overflow: auto;
+}
+
+.flw-scr {
+    overflow: scroll;
+}
+
+.dsp-blk,
+.dsp-blk-each > *,
+.dsp-blk-scd * > * {
+    display: block;
+}
+
+.dsp-inl,
+.dsp-inl-all *,
+.dsp-inl-each > *,
+.dsp-inl-scd * > * {
+    display: inline;
+}
+
+.dsp-ibk,
+.dsp-ibk-all *,
+.dsp-ibk-each > *,
+.dsp-ibk-scd * > * {
+    display: inline-block;
+}
+
+.dsp-non {
+    display: none;
+}
+
+.txt-disable,
+.txt-disable-all *,
+.txt-disable-each > * {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* @info: insert xml to cut each character outside the box */
+.cut {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    -moz-binding: url("/ellipsis.xml#ellipsis");
+}

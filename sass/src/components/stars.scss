@@ -1,0 +1,109 @@
+/*
+ * Module: Stars
+ *
+ * sts = stars
+ *
+ * 0/1/2/3/4/5 = number of stars
+ */
+[class*="sts-"] {
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    letter-spacing: -0.1em;
+
+    i {
+        font-style: normal;
+    }
+}
+
+[class*="sts-"][class*="scl-xs"] {
+    font-size: 1em;
+}
+
+[class*="sts-"][class*="scl-s"] {
+    font-size: 1.5em;
+}
+
+[class*="sts-"][class*="scl-m"] {
+    font-size: 2em;
+}
+
+[class*="sts-"][class*="scl-l"] {
+    font-size: 2.5em;
+}
+
+[class*="sts-"][class*="scl-xl"] {
+    font-size: 3em;
+}
+
+[class*="sts-"] i {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+
+[class*="sts-"] i:after {
+    content: 'R';
+}
+
+/*
+ * Colors
+ */
+
+[class*="sts-"]:before {
+    color: #ffa800;
+}
+
+[class*="sts-"]:after,
+[class*="sts-"] i:after {
+    color: #d8d8d8;
+}
+
+/*
+ * Steps
+ */
+
+[class*="sts-5"] i {
+    left: 3.90em;
+}
+
+[class*="sts-4"] i {
+    left: 3em;
+}
+
+[class*="sts-3"] i {
+    left: 2.06em;
+}
+
+[class*="sts-2"] i {
+    left: 1.15em;
+}
+
+[class*="sts-1"] i {
+    left: 0.25em;
+}
+
+[class*="sts-1"]:after,
+[class*="sts-4"]:before {
+    content: '****';
+}
+
+[class*="sts-0"]:before,
+[class*="sts-5"]:before {
+    content: '*****';
+}
+
+[class*="sts-1"]:before,
+[class*="sts-4"]:after {
+    content: '*';
+}
+
+[class*="sts-2"]:after,
+[class*="sts-3"]:before {
+    content: '***';
+}
+
+[class*="sts-2"]:before,
+[class*="sts-3"]:after {
+    content: '**';
+}

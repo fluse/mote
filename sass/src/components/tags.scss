@@ -1,0 +1,30 @@
+/*
+ * Module: Tag List
+ */
+
+.tag-list {
+
+    li {
+        font-size: 11px;
+        display: inline-block;
+        padding: .5em .8em;
+        margin: .3em .1em;
+        border-style: solid;
+        border-width: 1px;
+        cursor: pointer;
+    }
+
+    li i {
+        text-align: center;
+        display: inline-block;
+        width: 15px;
+        height: 16px;
+        padding: .4em .3em;
+        margin-left: .5em;
+    }
+
+    li:hover i {
+        background-color: #d14646;
+    }
+
+}
