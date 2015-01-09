@@ -10,16 +10,16 @@
 
 [data-upper-after],
 [data-upper-before] {
-    position: relative;
-    display: inline-block;
+    @extend .rel;
+    @extend .dsp-ibk;
 }
 
 [data-upper-before]:before,
 [data-upper-before]:after
 [data-upper-after]:before,
 [data-upper-after]:after {
+    @extend .abs;
     font-size: 70%;
-    position: absolute;
     bottom: 60%;
 }
 

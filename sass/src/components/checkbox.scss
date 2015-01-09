@@ -1,48 +1,48 @@
 .#{$checkbox-name} {
 
-    display: block;
-    position: relative;
+    @extend .dsp-blk;
+    @extend .rel;
+    @extend .csr-pnt;
+    @extend .txt-mdl;
     min-width: 1em;
     line-height: 1em;
     outline: 0;
-    vertical-align: middle;
-    cursor: pointer;
 
     * {
-        vertical-align: middle;
-        cursor: pointer;
+        @extend .txt-mdl;
+        @extend .csr-pnt;
     }
 
     input {
-        display: none;
+        @extend .hidden;
     }
 
     span {
-        text-align: center;
-        position: relative;
+        @extend .cnr;
+        @extend .rel;
+        @extend .dsp-ibk;
+        @extend .rnd-s;
+        @extend .flw-hdn;
         top: 1px;
-        display: inline-block;
         margin-right: 5px;
         padding: 0 2px;
         width: 15px;
         height: 15px;
-        border-radius: 3px;
-        overflow: hidden;
         color: #{$checkbox-color-inactive};
         background-color: #{$checkbox-color-inactive};
         transition: all 0.1s ease-out;
     }
 
     span[class*='#{$icon-name}-'] {
+        @extend .pdg-vrt-2;
+        @extend .wdt-ato;
         top: -1px;
-        padding: 0 2px;
-        width: auto;
         height: auto;
     }
 
     span:before {
-        text-align: center;
-        position: relative;
+        @extend .cnr;
+        @extend .rel;
         left: -100px;
         top: -1px;
         font-size: 80%;

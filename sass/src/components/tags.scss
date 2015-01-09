@@ -5,22 +5,23 @@
 .tag-list {
 
     li {
-        font-size: 11px;
-        display: inline-block;
-        padding: .5em .8em;
+        @extend .fns-11;
+        @extend .dsp-ibk;
+        @extend .pdg-vrt-8;
+        @extend .pdg-hzn-5;
+        @extend .csr-pnt;
         margin: .3em .1em;
         border-style: solid;
         border-width: 1px;
-        cursor: pointer;
     }
 
     li i {
-        text-align: center;
-        display: inline-block;
+        @extend .cnr;
+        @extend .dsp-ibk;
+        @extend .mgn-lft-5;
         width: 15px;
         height: 16px;
         padding: .4em .3em;
-        margin-left: .5em;
     }
 
     li:hover i {

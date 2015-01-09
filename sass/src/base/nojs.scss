@@ -6,4 +6,6 @@
     .static {
         display: block;
     }
+
+    @extend .nojs-hook !optional;
 }

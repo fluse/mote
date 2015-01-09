@@ -4,18 +4,18 @@
 
 [data-tip] {
 
-    position: relative;
+    @extend .rel;
 
     &:before,
     &:after {
-        position: absolute;
-        display: none;
+        @extend .abs;
+        @extend .hidden;
         opacity: 0;
         @include vendor-prefix(transition, (opacity .3s ease, visibility .3s ease));
     }
 
     &:hover {
-        z-index: #{$index-last};
+        @extend .zdx-lst;
     }
 }
 
@@ -23,7 +23,7 @@
 [data-tip]:hover:after,
 [data-tip]:focus:before,
 [data-tip]:focus:after {
-    display: block;
+    @extend .dsp-blk;
     opacity: 1;
 }
 

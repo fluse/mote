@@ -1,21 +1,21 @@
 .tabs {
-    @extend .rel !optional;
+    @extend .rel;
 
     li {
-        @extend .flt-lft !optional;
-        @extend .dsp-blk !optional;
+        @extend .flt-lft;
+        @extend .dsp-blk;
     }
 
     input[type="radio"] {
-        @extend .abs !optional;
+        @extend .abs;
         top: -9999px;
         left: -9999px;
     }
 
     label {
-        @extend .dsp-blk !optional;
-        @extend .csr-pnt !optional;
-        @extend .rel !optional;
+        @extend .dsp-blk;
+        @extend .csr-pnt;
+        @extend .rel;
 
         border-radius: 2px 2px 0 0;
 
@@ -30,23 +30,27 @@
     }
 
     .tab-content {
-        z-index: 2;
-        display: none;
+        @extend .zdx-2;
+        @extend .hidden;
+        @extend .fsi-16 !optional;
+        @extend .pdg-25 !optional;
+        @extend .abs;
+
         overflow: hidden;
         width: 100%;
-        @extend .fsi-16 !optional;
         line-height: 25px;
-        @extend .pdg-25 !optional;
-        @extend .abs !optional;
         top: 100%;
         left: 0;
+
+        @extend .tab-content-hook !optional;
     }
 
     //The Magic
     [id^="tab"]:checked + label {
 
     }
+
     [id^="tab"]:checked ~ [id^="tab-content"] {
-        @extend .dsp-blk !optional;
+        @extend .dsp-blk;
     }
 }
