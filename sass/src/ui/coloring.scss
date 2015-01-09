@@ -15,7 +15,7 @@
 
 @each $name, $value in $color-text-list {
 
-    .clr-#{$name} {
+    body .clr-#{$name} {
         color: #{$value};
     }
 
