@@ -1,7 +1,6 @@
 html, body {
     height: 100%;
     overflow-x: hidden;
-
     overflow-x: auto\9;
 }
 
@@ -9,8 +8,9 @@ body {
     font: #{$baseScale} #{$font-families} #{checkSerif()};
     font-weight: #{$font-weight};
     color: #{$baseTxtColor};
-    position: relative;
     background-color: #{$baseColor};
+    line-height: 1.1;
+    @extend .body !optional;
 }
 
 [hidden], .hidden {
@@ -47,7 +47,6 @@ input[type='submit'] {
 
 p, i, strong, u, a, span, li, h1, h2, h3, h4, h5, li {
     font-weight: inherit;
-    line-height: 1.1;
     white-space: normal;
     vertical-align: baseline;
 }
