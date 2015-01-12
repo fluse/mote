@@ -16,3 +16,7 @@
     }
 
 }
+
+.#{$shadow-name}-non {
+    @include vendor-prefix(box-shadow, none);
+}

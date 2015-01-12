@@ -1,0 +1,24 @@
+.lst-cic {
+    list-style-position: outside;
+
+    li {
+        list-style-type: disc;
+    }
+
+    @extend .lst-cic-hook !optional;
+}
+
+.lst-sqr {
+    list-style-position: outside;
+
+    li {
+        list-style-type: square;
+    }
+
+    @extend .lst-sqr-hook !optional;
+}
+
+body .lst-non {
+    list-style-type: none;
+    @extend .lst-non-hook !optional;
+}

@@ -161,11 +161,6 @@ body .dsp-non {
     user-select: none;
 }
 
-body .lst-non,
-body .lst-non li {
-    list-style-type: none;
-}
-
 /* @info: insert xml to cut each character outside the box */
 .cut {
     @extend .dsp-ibk;

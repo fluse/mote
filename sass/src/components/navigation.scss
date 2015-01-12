@@ -11,15 +11,15 @@
             @extend .dsp-blk;
             @extend .rel;
 
-            @extend .nav-link !optional;
+            @extend .nav-link-hook !optional;
         }
 
         &.active > a {
-            @extend .nav-link-active !optional;
+            @extend .nav-link-active-hook !optional;
         }
 
         &:hover > a {
-            @extend .nav-link-hover !optional;
+            @extend .nav-link-hover-hook !optional;
         }
     }
 
@@ -28,21 +28,23 @@
 
         ul {
             left: -9999px;
+
             @extend .abs;
 
             @extend .zdx-2;
 
-            @extend .nav-menu !optional;
+            @extend .nav-menu-hook !optional;
 
             li {
-                @extend .nav-menu-link !optional;
+                @extend .nav-menu-link-hook !optional;
 
                 a {
+                    @extend .nav-menu-link-a-hook !optional;
                     text-decoration: none;
                 }
 
                 &:hover {
-                    @extend .nav-menu-link-hover !optional;
+                    @extend .nav-menu-link-hover-hook !optional;
                 }
             }
         }

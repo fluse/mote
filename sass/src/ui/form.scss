@@ -8,12 +8,13 @@ input:-ms-input-placeholder {
 }
 
 select::-ms-expand {
-    @extend .dsp-non;
+    @extend .hidden;
 }
 
 /* @info: disable label if input is disabled */
 input:disabled ~ label {
     opacity: 0.5;
+    @extend .form-label-disabled-hook !optional;
 }
 
 /* @info: set require sign to label */
@@ -34,7 +35,7 @@ input[type='password'] {
 
     @include vendor-prefix("transition", "border .3s ease-out");
 
-    @extend .form-input !optional;
+    @extend .form-input-hook !optional;
 }
 
 button:focus,
@@ -42,7 +43,7 @@ textarea:focus,
 select:focus,
 input[type='text']:focus {
     border-color: #{$color-form-focus};
-    @extend .form-input-focus !optional;
+    @extend .form-input-focus-hook !optional;
 }
 
 button:hover,
@@ -50,24 +51,23 @@ textarea:hover,
 select:hover,
 input[type='text']:hover {
     border-color: lighten($color-form-focus, 10%);
-    @extend .form-input-focus !optional;
+    @extend .form-input-hover-hook !optional;
 }
 
 /* @info replace default open icon with customized arrow */
 body select {
-    padding-right: 29px;
-    padding-top: 9px;
-    padding-bottom: 9px;
+    @extend .pdg-rgt-25 !optional;
+    @extend .pdg-top-9 !optional;
+    @extend .pdg-btm-9 !optional;
+
     text-indent: 0.001em;
     text-overflow: '';
 
-    @extend .form-select !optional;
+    @extend .form-select-hook !optional;
 }
 
 input:invalid {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
+    @extend .#{$shadow-name}-non;
 }
 
 input:visited:invalid,
@@ -75,5 +75,5 @@ input.error,
 .error input {
     border-color: #{$color-form-error};
     outline: 0;
-    @extend .form-input-error !optional;
+    @extend .form-input-error-hook !optional;
 }

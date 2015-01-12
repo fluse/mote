@@ -1,11 +1,17 @@
 .trigger {
 
+    @extend .trigger-hook !optional;
+
     .target {
         @extend .hidden;
+
+        @extend .target-hook !optional;
     }
 
     :checked ~ .target {
         @extend .dsp-blk;
+
+        @extend .trigger-active-hook !optional;
     }
 
 }

@@ -2,11 +2,14 @@
 
     @extend .rel !optional;
     @extend .dsp-ibk !optional;
+    @extend .csr-pnt !optional;
+
     min-width: 1em;
     line-height: 1em;
     outline: 0;
     vertical-align: middle;
-    @extend .csr-pnt !optional;
+
+    @extend .#{$toggle-name}-hook !optional;
 
     * {
         vertical-align: middle;
@@ -15,6 +18,8 @@
 
     input {
         @extend .dsp-non !optional;
+
+        @extend .#{$toggle-name}-input-hook !optional;
     }
 
     span {
@@ -26,6 +31,8 @@
         height: 1.5em;
         border-radius: 3em;
         background-color: #{$toggle-color-inactive};
+
+        @extend .#{$toggle-name}-span-hook !optional;
 
         &:before {
             @extend .abs !optional;
@@ -42,6 +49,8 @@
     :checked ~ span {
 
         background-color: #{$toggle-color-active};
+
+        @extend .#{$toggle-name}-span-active-hook !optional;
 
         &:before {
             left: auto;

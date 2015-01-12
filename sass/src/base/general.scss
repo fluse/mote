@@ -10,7 +10,7 @@ body {
     color: #{$baseTxtColor};
     background-color: #{$baseColor};
     line-height: 1.1;
-    @extend .body !optional;
+    @extend .body-hook !optional;
 }
 
 [hidden], .hidden {
@@ -60,30 +60,25 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    @extend .all-headlines !optional;
+    @extend .all-headlines-hook !optional;
 }
 
 h1 {
-    @extend .h1 !optional;
+    @extend .h1-hook !optional;
 }
 
 h2 {
-    @extend .h2 !optional;
+    @extend .h2-hook !optional;
 }
 
 h3 {
-    @extend .h3 !optional;
+    @extend .h3-hook !optional;
 }
 
 h4 {
-    @extend .h4 !optional;
+    @extend .h4-hook !optional;
 }
 
 strong {
     @extend .bld;
-}
-
-ol, ul {
-    list-style-position: outside;
-    @extend .lists !optional;
 }
