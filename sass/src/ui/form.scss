@@ -78,8 +78,18 @@ input:invalid {
 
 input:visited:invalid,
 input.error,
+input.error:hover,
+input.error:focus,
+.error input:focus,
+.error input:hover,
 .error input {
     border-color: #{$color-form-error};
     outline: 0;
     @extend .form-input-error-hook !optional;
+}
+
+.error label {
+    color: #{$color-form-error};
+
+    @extend .form-label-error-hook !optional;
 }
