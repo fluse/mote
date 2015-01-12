@@ -95,6 +95,7 @@ module.exports = function (grunt) {
                         return '.spr-' + item.name;
                     }
                 },
+                cssTemplate: 'mustacheStr.css.mustache',
                 src: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.deliverSprite + grunt.option('name') + '/*.png',
                 destImg: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.sprite + grunt.option('name') + '.png',
                 destCSS: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.sprite + grunt.option('name') + '.css'
@@ -491,7 +492,15 @@ var buildWorkFlow = {
 
         console.log(" " + clc.green(figures.tick) + " " + file + " updated");
 
+        if (defaultSettings.version <= customSettings.version) {
+            console.log(clc.green("settings up to date with version" + customSettings.version));
+            return customSettings;
+        }
+
         var newCustomSettings = extend(true, defaultSettings, customSettings);
+
+        // set to new version
+        customSettings.version = defaultSettings.version;
 
         if (typeof newCustomSettings !== 'undefined') {
             fs.writeFile(this.cfg.dir.docroot + this.cfg.dir.themes + this.theme.name + '/' + file, JSON.stringify(newCustomSettings, null, 4), function(err) {
@@ -503,6 +512,9 @@ var buildWorkFlow = {
                 }
             });
         }
+
+        console.log(clc.green("settings upgradet to new version version" + customSettings.version));
+
         return customSettings;
     },
 

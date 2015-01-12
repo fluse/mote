@@ -126,6 +126,7 @@ body .flt-non {
 }
 
 .dsp-blk,
+.dsp-blk-all *,
 .dsp-blk-each > *,
 .dsp-blk-scd * > * {
     display: block;
@@ -160,9 +161,14 @@ body .dsp-non {
     user-select: none;
 }
 
+body .lst-non,
+body .lst-non li {
+    list-style-type: none;
+}
+
 /* @info: insert xml to cut each character outside the box */
 .cut {
-    display: inline-block;
+    @extend .dsp-ibk;
     white-space: nowrap;
     overflow: hidden;
     -o-text-overflow: ellipsis;
