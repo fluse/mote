@@ -64,19 +64,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    @extend .h1;
+    @extend .h1 !optional;
 }
 
 h2 {
-    @extend .h2;
+    @extend .h2 !optional;
 }
 
 h3 {
-    @extend .h3;
+    @extend .h3 !optional;
 }
 
 h4 {
-    @extend .h4;
+    @extend .h4 !optional;
 }
 
 strong {
@@ -85,5 +85,5 @@ strong {
 
 ol, ul {
     list-style-position: outside;
-    @extend .lists;
+    @extend .lists !optional;
 }
