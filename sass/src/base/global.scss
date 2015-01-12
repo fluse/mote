@@ -20,6 +20,7 @@
     text-align: right;
 }
 
+.bld,
 .txt-bld,
 .txt-bld-all *,
 .txt-bld-each > *,
@@ -144,7 +145,7 @@ body .flt-non {
     display: inline-block;
 }
 
-.dsp-non {
+body .dsp-non {
     display: none;
 }
 
