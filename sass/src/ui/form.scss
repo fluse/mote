@@ -42,15 +42,21 @@ button:focus,
 textarea:focus,
 select:focus,
 input[type='text']:focus {
+
     border-color: #{$color-form-focus};
+
     @extend .form-input-focus-hook !optional;
 }
 
 button:hover,
 textarea:hover,
 select:hover,
-input[type='text']:hover {
+input[type='text']:hover,
+input[type='email']:hover,
+input[type='password']:hover {
+
     border-color: lighten($color-form-focus, 10%);
+
     @extend .form-input-hover-hook !optional;
 }
 

@@ -3,7 +3,7 @@
     @extend .trigger-hook !optional;
 
     .target {
-        @extend .hidden;
+        @extend .dsp-non;
 
         @extend .target-hook !optional;
     }

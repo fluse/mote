@@ -16,18 +16,12 @@
 
 $unit-border: #{map-get($unit, border)};
 
-.#{$border-name}-sld {
-    border: 1#{$unit-border} solid transparent;
-}
-
-.#{$border-name}-dtd {
-     border: 1#{$unit-border} dotted transparent;
-}
-
+.#{$border-name}-sld,
 [class*=#{$border-name}-sld] {
     border-style: solid;
 }
 
+.#{$border-name}-dtd,
 [class*=#{$border-name}-dtd] {
     border-style: dotted;
 }
