@@ -95,7 +95,6 @@ module.exports = function (grunt) {
                         return '.spr-' + item.name;
                     }
                 },
-                cssTemplate: 'mustacheStr.css.mustache',
                 src: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.deliverSprite + grunt.option('name') + '/*.png',
                 destImg: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.sprite + grunt.option('name') + '.png',
                 destCSS: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.export.sprite + grunt.option('name') + '.css'
@@ -416,7 +415,7 @@ var buildWorkFlow = {
     },
 
     getSprites: function () {
-
+        // @todo sprite will be included twice
         var spriteImports = '';
 
         if (this.theme.settings.hasOwnProperty('sprite-list')) {

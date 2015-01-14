@@ -78,9 +78,14 @@ body .txt-btm-each > * {
     text-decoration: line-through;
 }
 
+.txt-dft,
+.txt-dft-all * {
+    font-style: normal;
+}
+
 .txt-nrl,
 .txt-nrl-all * {
-    font-weight: normal;
+    @extend .txt-dft;
     font-style: normal;
 }
 
