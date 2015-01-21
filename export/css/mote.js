@@ -2,4 +2,4 @@
 
 var config = require("config");
 
-require(config.pathToMote + "tasks");
+require(config.pathToMote + "tasks")(config);
