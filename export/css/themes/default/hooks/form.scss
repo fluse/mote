@@ -1,8 +1,8 @@
 /*
- * Form
+ * Form Hooks
  */
 
-.form-input {
+.form-input-hook {
     color: #1b1b1b;
     font-size: 16px;
     padding: 10px 50px 10px 10px;
@@ -12,20 +12,12 @@
 
 .form-input-focus-hook {}
 
-.form-input-hover {}
+.form-input-hover-hook {}
 
-.form-input-error {}
+.form-select-hook {}
 
-/*
- * Navigation
- */
+.form-input-error-hook {}
 
-.nav-link {}
+.form-label-error-hook {}
 
-.nav-link-hover {}
-
-.nav-menu {}
-
-.nav-menu-link {}
-
-.nav-menu-link-hover {}
+.form-label-disabled-hook {}

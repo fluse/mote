@@ -4,35 +4,28 @@
 
 .tag-list {
 
+    // hook
     @extend .tag-list-hook !optional;
 
     li {
-        @extend .fns-11;
-        @extend .dsp-ibk;
-        @extend .pdg-vrt-8;
-        @extend .pdg-hzn-5;
-        @extend .csr-pnt;
-        @extend .mgn-hzn-3;
-        @extend .mgn-vrt-1;
-        border-style: solid;
-        border-width: 1px;
 
+        @extend .dsp-ibk;
+        @extend .csr-pnt;
+
+        // hook
         @extend .tag-list-li-hook !optional;
     }
 
     li i {
         @extend .cnr;
         @extend .dsp-ibk;
-        @extend .mgn-lft-5;
-        width: 15px;
-        height: 16px;
-        @extend .pdg-vrt-3;
-        @extend .pdg-hzn-4;
 
+        // hook
         @extend .tag-list-li-i-hook !optional;
     }
 
     li:hover i {
+        // hook
         @extend .tag-list-active-hook !optional;
     }
 

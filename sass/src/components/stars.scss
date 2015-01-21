@@ -6,13 +6,14 @@
  * 0/1/2/3/4/5 = number of stars
  */
 [class*="sts-"] {
+    @extend .dsp-ibk;
+    @extend .rel;
+
     white-space: nowrap;
-    display: inline-block;
-    position: relative;
     letter-spacing: -0.1em;
 
     i {
-        font-style: normal;
+        @extend .txt-nrl;
     }
 }
 

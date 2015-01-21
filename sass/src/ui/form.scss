@@ -14,6 +14,8 @@ select::-ms-expand {
 /* @info: disable label if input is disabled */
 input:disabled ~ label {
     opacity: 0.5;
+
+    // hook
     @extend .form-label-disabled-hook !optional;
 }
 
@@ -35,6 +37,7 @@ input[type='password'] {
 
     @include vendor-prefix("transition", "border .3s ease-out");
 
+    // hook
     @extend .form-input-hook !optional;
 }
 
@@ -45,6 +48,7 @@ input[type='text']:focus {
 
     border-color: #{$color-form-focus};
 
+    // hook
     @extend .form-input-focus-hook !optional;
 }
 
@@ -57,6 +61,7 @@ input[type='password']:hover {
 
     border-color: lighten($color-form-focus, 10%);
 
+    // hook
     @extend .form-input-hover-hook !optional;
 }
 
@@ -69,11 +74,15 @@ body select {
     text-indent: 0.001em;
     text-overflow: '';
 
+    // hook
     @extend .form-select-hook !optional;
 }
 
 input:invalid {
     @extend .#{$shadow-name}-non;
+
+    // hook
+    @extend .form-invalid-hook !optional;
 }
 
 input:visited:invalid,
@@ -85,11 +94,14 @@ input.error:focus,
 .error input {
     border-color: #{$color-form-error};
     outline: 0;
+
+    // hook
     @extend .form-input-error-hook !optional;
 }
 
 .error label {
     color: #{$color-form-error};
 
+    // hook
     @extend .form-label-error-hook !optional;
 }

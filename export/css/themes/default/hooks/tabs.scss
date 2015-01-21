@@ -1,0 +1,36 @@
+/*
+ * Tab Hooks
+ */
+
+.tabs-hook {
+
+}
+
+.tab-menu-point-hook {
+
+}
+
+.tab-menu-text-hook {
+    @extend .rnd-s-top;
+    @extend .fsi-20;
+    @extend .txt-non;
+}
+
+.tab-menu-text-hover-hook {
+
+}
+
+.tab-menu-text-active-hook {
+
+}
+
+.tab-content-hook {
+    @extend .fsi-16 !optional;
+    @extend .pdg-25 !optional;
+    @extend .wdt-100;
+    @extend .lnh-25 !optional;
+}
+
+.tab-content-active-hook {
+
+}

@@ -4,13 +4,13 @@
  */
 
 [class*='#{$icon-name}-'] {
-    position: relative;
-    display: inline-block;
-    font-weight: normal;
-    font-style: normal;
-    line-height: 1;
+    @extend .rel;
+    @extend .dsp-ibk;
+    @extend .txt-nrl;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    @extend .icon-hook !optional;
 }
 
 @each $name, $value in $icon-size {

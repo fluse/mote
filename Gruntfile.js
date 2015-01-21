@@ -103,22 +103,20 @@ module.exports = function (grunt) {
         copy: {
             structure: {
                 expand: true,
-                cwd: "structure/",
+                cwd: "export/",
                 src: ['**/*'],
                 dest: buildWorkFlow.cfg.dir.docroot
             },
             main: {
                 expand: true,
-                flatten: true,
-                cwd: "structure/",
-                src: ['css/themes/default/*'],
+                cwd: "export/css/themes/default/",
+                src: ['**/*'],
                 dest: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.themes + grunt.option('name') + '/'
             },
             font: {
                 expand: true,
-                flatten: true,
-                cwd: "structure/",
-                src: ['deliver/font/default/*'],
+                cwd: "export/deliver/font/default/",
+                src: ['*'],
                 dest: buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.deliverFont + grunt.option('name') + '/'
             },
             cssAsScss: {
@@ -140,11 +138,11 @@ module.exports = function (grunt) {
                 dest: buildWorkFlow.cfg.dir.docroot + 'font/' + grunt.option('name') + '/',
                 options: {
                     engine: 'node',
-                    hashes: false,
-                    ie7: false,
+                    hashes: true,
+                    ie7: true,
                     font: grunt.option('name'),
                     templateOptions: {
-                        template: 'structure/font/template.scss'
+                        template: 'export/font/template.scss'
                     }
                 }
             }
@@ -525,7 +523,7 @@ var buildWorkFlow = {
     getDefaultThemeByFile: function (file) {
 
         return require(
-            this.cfg.dir.docroot + 'mote-css/structure/' + this.cfg.dir.themes + 'default/' + file
+            this.cfg.dir.docroot + 'mote-css/export/' + this.cfg.dir.themes + 'default/' + file
         );
     }
 

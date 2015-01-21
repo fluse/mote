@@ -38,9 +38,9 @@
         @include vendor-prefix(border-radius, 0 #{$value}px #{$value}px 0);
     }
 
-     .#{$border-radius-name}-#{$name}-#{$bottom} {
-         @include vendor-prefix(border-radius, 0 0 #{$value}px #{$value}px);
-      }
+    .#{$border-radius-name}-#{$name}-#{$bottom} {
+        @include vendor-prefix(border-radius, 0 0 #{$value}px #{$value}px);
+    }
 
     .#{$border-radius-name}-#{$name}-#{$left} {
         @include vendor-prefix(border-radius, #{$value}px 0 0 #{$value}px);

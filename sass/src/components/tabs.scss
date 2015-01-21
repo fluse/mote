@@ -1,15 +1,20 @@
 .tabs {
     @extend .rel;
 
+    // hook
+    @extend .tabs-hook !optional;
+
     li {
         @extend .flt-lft;
         @extend .dsp-blk;
+
+        // hook
+        @extend .tab-menu-point-hook !optional;
     }
 
     input[type="radio"] {
         @extend .abs;
-        top: -9999px;
-        left: -9999px;
+        @extend .psn-out-hdn;
     }
 
     label {
@@ -17,40 +22,37 @@
         @extend .csr-pnt;
         @extend .rel;
 
-        border-radius: 2px 2px 0 0;
-
-        @extend .fsi-20;
-        font-weight: normal;
-
-        @include vendor-prefix("transition", all 0.2s ease-in-out);
+        // hook
+        @extend .tab-menu-text-hook !optional;
 
         &:hover {
-
+            // hook
+            @extend .tab-menu-text-hover-hook !optional;
         }
     }
 
     .tab-content {
-        @extend .zdx-2;
         @extend .hidden;
-        @extend .fsi-16 !optional;
-        @extend .pdg-25 !optional;
         @extend .abs;
+        @extend .flw-hdn;
+        @extend .zdx-2;
 
-        overflow: hidden;
-        width: 100%;
-        line-height: 25px;
         top: 100%;
         left: 0;
 
+        // hook
         @extend .tab-content-hook !optional;
     }
 
-    //The Magic
     [id^="tab"]:checked + label {
-
+        // hook
+        @extend .tab-menu-text-active-hook !optional;
     }
 
     [id^="tab"]:checked ~ [id^="tab-content"] {
         @extend .dsp-blk;
+
+        // hook
+        @extend .tab-content-active-hook !optional;
     }
 }

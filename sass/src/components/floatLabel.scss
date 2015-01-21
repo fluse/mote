@@ -1,7 +1,9 @@
 .float-label {
 
-    font-size: #{$float-label-font-size};
     @extend .psr;
+
+    // hook
+    @extend .float-label-hook !optional;
 
     label {
         color: #999;
@@ -10,9 +12,14 @@
         top: 0;
         left: 0;
         bottom: 0;
+
         -webkit-transition: all 0.25s ease;
         transition: all 0.25s ease;
+
         pointer-events: none;
+
+        // hook
+        @extend .float-label-label-hook !optional;
     }
 
     input:focus ~ label,
@@ -25,6 +32,8 @@
         top: auto;
         -webkit-transition: all 0.125s ease;
         transition: all 0.125s ease;
+
+        @extend .float-label-active-hook !optional;
     }
 
     input:focus ~ span,

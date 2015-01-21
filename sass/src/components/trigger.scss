@@ -1,16 +1,19 @@
 .trigger {
 
+    // hook
     @extend .trigger-hook !optional;
 
     .target {
         @extend .dsp-non;
 
+        // hook
         @extend .target-hook !optional;
     }
 
     :checked ~ .target {
         @extend .dsp-blk;
 
+        // hook
         @extend .trigger-active-hook !optional;
     }
 
