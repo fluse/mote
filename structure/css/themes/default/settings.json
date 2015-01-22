@@ -120,15 +120,18 @@
     "shadow-list": {
         "s": {
             "position": "0 0 2px 1px",
-            "opacity": "0.2"
+            "opacity": "0.2",
+            "option": ""
         },
         "m": {
             "position": "0 0 5px 2px",
-            "opacity": "0.2"
+            "opacity": "0.2",
+            "option": ""
         },
         "l": {
             "position": "0 0 2px 3px",
-            "opacity": "0.09"
+            "opacity": "0.09",
+            "option": "inset"
         }
     },
 

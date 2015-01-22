@@ -2,7 +2,7 @@
  * bxs = box-shadow
  * txs = text-shadow
  *
- * set size via [s][s][m][l][xl][dwn][nst]
+ * set size via [s][m][l][xl]
  *
  * example: class="bxs-s"
  * example: class="txs-s"
@@ -12,7 +12,7 @@
 @each $key, $shadowObj in $shadow-list {
 
     .#{$shadow-name}-#{$key} {
-        @include vendor-prefix(box-shadow, map-get($shadowObj, position) rgba(0, 0, 0, map-get($shadowObj, opacity)));
+        @include vendor-prefix(box-shadow, map-get($shadowObj, option) map-get($shadowObj, position) rgba(0, 0, 0, map-get($shadowObj, opacity)));
     }
 
 }
