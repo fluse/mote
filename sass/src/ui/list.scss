@@ -1,4 +1,9 @@
-.lst-cic {
+body .lst-non {
+    list-style-type: none;
+    @extend .lst-non-hook !optional;
+}
+
+.lst-dsc {
     list-style-position: outside;
 
     li {
@@ -18,7 +23,12 @@
     @extend .lst-sqr-hook !optional;
 }
 
-body .lst-non {
-    list-style-type: none;
-    @extend .lst-non-hook !optional;
+.lst-blt {
+
+    @extend .lst-non;
+
+    li:before {
+        content: "•";
+    }
+
 }

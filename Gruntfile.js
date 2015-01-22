@@ -16,6 +16,8 @@ module.exports = function (grunt) {
 
     buildWorkFlow.initalize(grunt);
 
+    console.log(buildWorkFlow.cfg.dir.docroot + buildWorkFlow.cfg.dir.deliver +'font/' + grunt.option('name'));
+
     grunt.initConfig({
         pkg: buildWorkFlow.cfg,
         sass: {
