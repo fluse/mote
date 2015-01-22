@@ -28,7 +28,7 @@ body .lst-non {
     @extend .lst-non;
 
     li:before {
-        content: "•";
+        content: "• ";
     }
 
 }
