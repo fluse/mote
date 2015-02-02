@@ -4,33 +4,57 @@
  * clr = color
  *  -each = each child
  *  -all  = all childs
- *  -hvr  = only on :hover state
+ *  -scd  = second level
+ *  -owl  = alle childs excluded first element
+ *  -bfr  = before pseudo element
+ *  -aft  = after pseudo element
+ * hvr = only on :hover state
+ *  -each = each child
  * bgc = background-color
+ *  -all  = all childs
+ *  -scd  = second level
+ *  -owl  = alle childs excluded first element
  * brc = border-color
  */
 
 /*
- * bgc = background-color
+ * clr = color
  */
 
 @each $name, $value in $color-text-list {
 
-    body .clr-#{$name} {
+    body .clr-#{$name},
+    .clr-#{$name}-scd * > *,
+    .clr-#{$name}-owl * + *,
+    .clr-aft-#{$name}:after,
+    .clr-bfr-#{$name}:before,
+    .#{$hover-name}-clr-#{$name}:hover,
+    .#{$hover-name}-clr-#{$name}-each *:hover {
         color: #{$value};
     }
 
 }
+
+/*
+ * bgc = background-color
+ */
 
 @each $name, $value in $color-background-list {
 
     .bgc-#{$name},
     .bgc-#{$name}-each > *,
     .bgc-#{$name}-scd * > *,
-    .bgc-#{$name}-owl * + * {
+    .bgc-#{$name}-owl * + *,
+    .#{$hover-name}-bgc-#{$name}:hover,
+    .#{$hover-name}-bgc-#{$name}-each *:hover {
         background-color: #{$value};
     }
 
 }
+
+/*
+ * brc = border-color
+ */
 
 @each $name, $value in $color-border-list {
 

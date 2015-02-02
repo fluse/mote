@@ -22,47 +22,68 @@
     .#{$margin-name}-#{$size},
     .#{$margin-name}-#{$size}-each > *,
     .#{$margin-name}-#{$size}-scd * > *,
-    .#{$margin-name}-#{$size}-owl > * + * {
+    .#{$margin-name}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$size}-lst:last-child,
+    .#{$margin-name}-#{$size}-fst:first-child {
         @include calculateRem('margin', $size);
     }
 
     .#{$margin-name}-#{$top}-#{$size},
     .#{$margin-name}-#{$top}-#{$size}-each > *,
+    .#{$margin-name}-#{$top}-#{$size}-scd * > *,
     .#{$margin-name}-#{$top}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$top}-#{$size}-lst:last-child,
+    .#{$margin-name}-#{$top}-#{$size}-fst:first-child,
     .#{$margin-name}-#{$horizontal}-#{$size},
     .#{$margin-name}-#{$horizontal}-#{$size}-each > *,
     .#{$margin-name}-#{$horizontal}-#{$size}-scd * > *,
-    .#{$margin-name}-#{$horizontal}-#{$size}-owl > * + * {
+    .#{$margin-name}-#{$horizontal}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$horizontal}-#{$size}-lst:last-child,
+    .#{$margin-name}-#{$horizontal}-#{$size}-fst:first-child {
         @include calculateRem('margin-top', $size);
     }
 
     .#{$margin-name}-#{$right}-#{$size},
     .#{$margin-name}-#{$right}-#{$size}-each > *,
+    .#{$margin-name}-#{$right}-#{$size}-scd * > *,
     .#{$margin-name}-#{$right}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$right}-#{$size}-lst:last-child,
+    .#{$margin-name}-#{$right}-#{$size}-fst:first-child,
     .#{$margin-name}-#{$vertical}-#{$size},
     .#{$margin-name}-#{$vertical}-#{$size}-each > *
     .#{$margin-name}-#{$vertical}-#{$size}-scd * > *,
-    .#{$margin-name}-#{$vertical}-#{$size}-owl > * + * {
+    .#{$margin-name}-#{$vertical}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$vertical}-#{$size}-lst:last-child,
+    .#{$margin-name}-#{$vertical}-#{$size}-fst:first-child {
         @include calculateRem('margin-right', $size);
     }
 
     .#{$margin-name}-#{$bottom}-#{$size},
     .#{$margin-name}-#{$bottom}-#{$size}-each > *,
     .#{$margin-name}-#{$bottom}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$bottom}-#{$size}-lst:last-child,
+    .#{$margin-name}-#{$bottom}-#{$size}-fst:first-child,
     .#{$margin-name}-#{$horizontal}-#{$size},
     .#{$margin-name}-#{$horizontal}-#{$size}-each > *,
     .#{$margin-name}-#{$horizontal}-#{$size}-scd * > *,
-    .#{$margin-name}-#{$horizontal}-#{$size}-owl > * + * {
+    .#{$margin-name}-#{$horizontal}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$horizontal}-#{$size}-lst:last-child,
+    .#{$margin-name}-#{$horizontal}-#{$size}-fst:first-child {
         @include calculateRem('margin-bottom', $size);
     }
 
     .#{$margin-name}-#{$left}-#{$size},
     .#{$margin-name}-#{$left}-#{$size}-each > *,
+    .#{$margin-name}-#{$left}-#{$size}-scd * > *,
     .#{$margin-name}-#{$left}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$left}-#{$size}-lst:last-child,
+    .#{$margin-name}-#{$left}-#{$size}-fst:first-child,
     .#{$margin-name}-#{$vertical}-#{$size},
     .#{$margin-name}-#{$vertical}-#{$size}-each > *,
     .#{$margin-name}-#{$vertical}-#{$size}-scd * > *,
-    .#{$margin-name}-#{$vertical}-#{$size}-owl > * + * {
+    .#{$margin-name}-#{$vertical}-#{$size}-owl > * + *,
+    .#{$margin-name}-#{$vertical}-#{$size}-lst:last-child,
+    .#{$margin-name}-#{$vertical}-#{$size}-fst:first-child {
         @include calculateRem('margin-left', $size);
     }
 

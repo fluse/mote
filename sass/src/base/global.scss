@@ -166,6 +166,10 @@ body .dsp-non {
     user-select: none;
 }
 
+.wrp-non {
+    white-space: nowrap;
+}
+
 /* @info: insert xml to cut each character outside the box */
 .cut {
     @extend .dsp-ibk;

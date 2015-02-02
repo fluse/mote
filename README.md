@@ -9,19 +9,15 @@ Everyone is welcomed to make this project rocket safer.
 
 ##Benefits
 
-- easy customizable with theme based settings
-- small *.css filesize
 - sass based preprocessor
-- easy to use concat files
-- auto generate webfont with grunt workflow
-- rapid developing
-- full grunt integration
+- easy customizable with settings and hooks
+- small *.css filesize
+- auto generate webfont
 - responsive grid
 - optional components like: tooltip, button, pagination, taglist and many more
 - only one file for each page
 - no css differences between test variations
 - easy old code remove
-- optimized folder-structure
 
 ## Documentations
 
@@ -30,45 +26,65 @@ Everyone is welcomed to make this project rocket safer.
 * [Component](#components)
 * [Development](#development)
 
-##Get Started
+## Get Started
 
 ### Installation
 
 #### 1. Clone mote:
 
 ```sh
-$ git clone https://user@bitbucket.org/fluse/mote.git
+$ git clone https://github.com/fluse/mote-css
 ```
 
 #### 2. Install environment:
 
-switch directory
+##### Switch directory
 
 ```sh
-$ cd mote/
+$ cd mote-css/
 ```
 
 ```sh
 $ sh install.sh
 ```
 
-select os
+##### Select OS
 
 ```sh
 $ which os? (linux/mac)
 ```
 
-create theme directories
+#### 3. Export
+
+##### Sturcture
+
+```sh
+$ node tasks
+```
+
+select first entry "First Install"
 
 * docroot
  * mote
  * css
   * themes
+   * {theme}
+   * {theme}
   * concats
   * dist
-   * default
+   * {theme}
     * mote.css
     * mote.min.css
+
+##### Theme
+
+##### Create Theme
+
+```sh
+$ node tasks
+```
+
+select first entry "Theme -> Create"
 
 ### Include css
 
@@ -79,8 +95,6 @@ To use mote in your website, simply drop the stylesheet into your document's `<h
     <link rel="stylesheet" href="css/dist/{theme}/mote.min.css">
 </head>
 ```
-
-*****
 
 ## Usage Documentation
 * [Globals](#globals)
@@ -108,6 +122,9 @@ write css fast with 3-char-code syntax
 | bxs | box-shadow |
 | brs | border style |
 | clr | color |
+| csr | cursor |
+| flt | floating |
+| txt | text-decoration |
 | bgc | backround-color |
 | bgt | background transparency |
 | csr | cursor |
@@ -117,14 +134,16 @@ write css fast with 3-char-code syntax
 | fsc | font-scale |
 | dsp | display |
 | flw | overflow |
-| wdt | width |
-| hgt | height |
+| wdt | width in % |
+| wds | width in px |
+| hgt | height in px |
+| lnh | line-height rem |
 | zdx | z-index |
 
-#### Markup examples
+#### Markup Examples
 
 ```html
-<div class="frm mgn-top-5 bgc-gry grd-4-each cnr">
+<div class="frm mgn-top-5 bgc-gry grd-each-4 cnr">
   <div class="pdg-10 pdg-no-top">1</div>
   <div class="fsi-20 txt-nln">2</div>
   <div>3</div>
@@ -133,14 +152,14 @@ write css fast with 3-char-code syntax
 ```
 
 ```html
-<div class="frm grd-3-each fsi-30 mgn-top-10 bgc-red cnr zdx-1">
+<div class="frm grd-each-each fsi-30 mgn-top-10 bgc-red cnr zdx-1">
   <div>1</div>
   <div>2</div>
   <div>3</div>
 </div>
 ```
 
-#### Possable algorithms
+#### Algorithms
 
 | name | description |
 |----------|-------------|
@@ -149,15 +168,13 @@ write css fast with 3-char-code syntax
 | -owl | each element on first level without first element |
 
 
-with `-each` you can select all child's from first level
+##### Each
 
 ```css
-.class > * {
+.each > * {
     attr: prop;
 }
 ```
-
-**markup example**
 
 ```html
 <div class="mgn-25-each">
@@ -168,15 +185,15 @@ with `-each` you can select all child's from first level
 </div>
 ```
 
-with `-scd` you can select all child's from second level
+##### Second Level
+
+select all elements in second depth width `-scd`
 
 ```css
-.class * > * {
+.scd * > * {
     attr: prop;
 }
 ```
-
-**markup example**
 
 ```html
 <div class="mgn-25-scd">
@@ -204,6 +221,8 @@ with `-scd` you can select all child's from second level
 </div>
 ```
 
+##### First Level without First-Child
+
 with `-owl` you can select all child's from first level excluded first element
 
 ```css
@@ -211,8 +230,6 @@ with `-owl` you can select all child's from first level excluded first element
     attr: prop;
 }
 ```
-
-**markup example**
 
 ```html
 <div class="mgn-25-owl">
@@ -228,8 +245,6 @@ with `-owl` you can select all child's from first level excluded first element
 </div>
 ```
 
-*****
-
 ### Globals
 
 #### Hide elements
@@ -239,8 +254,6 @@ with `-owl` you can select all child's from first level excluded first element
   display: none;
 }
 ```
-
-**markup example**
 
 ```html
 <span hidden>Where i'm</span>
@@ -324,7 +337,7 @@ generate a responsive grid with an configurable count of columns
 **markup example**
 
 ```html
-<div class="frm grd-4-each">
+<div class="frm grd-each-4">
   <div></div>
   <div></div>
   <div></div>
@@ -345,47 +358,32 @@ set padding and / or margin as spacings between elements:
 
 you can add the position of padding
 
-`mgn-[dct]`
+`mgn-[direction]-[number]-[algorithm]`
 
-dct = direction
+#### Position
 
 `mgn-top = top`
 `mgn-rgt = right`
 `mgn-btm = bottom`
 `mgn-lft = left`
 `mgn-vrt = vertical`
-`mgn-hzn = horizon`
+`mgn-hzn = horizontal`
 
-`mgn-[dct]-[nbr]`
+#### Number
 
-nbr = number
+`mgn-5 = 0.5rem = 5px`
+`mgn-10 = 1rem = 10px`
+`mgn-15 = 1.5rem = 15px`
 
-`mgn-5 = 0.5rem`
-`mgn-10 = 1rem`
-`mgn-15 = 1.5rem`
+#### Algorithm
 
-now you can add some optional properties:
-
-`mgn-[dct]-[nbr]-[atm]`
-
-atm = algorithm
+`mgn-top = top`
 
 **class example**
 
 `mgn-top-5-each`
 
 *****
-
-### Fonts from Google
-
-load a font from google with with your config
-
-```json
-"font-google-list": {
-    "Roboto": "100 300 400",
-    "Fontname": "fontWeight1 fontWeight2"
-}
-```
 
 ### Font-size
 
@@ -410,21 +408,28 @@ all sizes will generated in rem, with px fallback
 
 brs = border-style
 
+`brs-[type]-[position]-[size]`
+
+#### Type
+
     -sld = solid
     -dtd = dotted
 
+#### Position
 
     -top = top
     -btm = bottom
     -lft = left
     -rgt = right
 
--1 = border-width in pixel
+#### Size
 
-**markup example**
+    s, m, l, xl
+
+#### Markup
 
 ```html
-<div class="brs-sld-top-2">
+<div class="brs-sld-top-s">
     <p>text</p>
 </div>
 ```
@@ -439,10 +444,10 @@ brc = border-color
 
 you can define all colors inside `themes/{theme}/colors.json`
 
-**markup example**
+#### Markup
 
 ```html
-<div class="brs-sld-top-2 brc-grn">
+<div class="brs-sld-top-m brc-grn">
     <p>text</p>
 </div>
 ```
@@ -455,14 +460,14 @@ use predefined element positions
 
 psn = position
 
-behaviours
+#### Behaviours
 
     -fxd = fixed
     -rel = relative
     -abs = absolute
     -stc = static
 
-inner positions
+#### Inner Positions
 
     -cnr-top = inner top center
     -cnr-btm = inner bottom center
@@ -475,6 +480,8 @@ inner positions
     -btm-lft = bottom: 0; left: 0;
     -lft     = left: 0;
 
+#### Outer Positions
+
 out = outer positions
 
     -out-cnr-top = outer top center
@@ -484,7 +491,7 @@ out = outer positions
     -out-btm = top: 100%;
     -out-lft = right: 100%;
 
-**markup example**
+#### Markup
 
 ```html
 <div class="psr">
@@ -522,7 +529,17 @@ $ vim sass/src/base/nojs.scss
 }
 ```
 
-*****
+### Fonts from Google
+
+load a font from google with with your config
+
+```json
+"font-google-list": {
+    "Roboto": "100 300 400",
+    "Fontname": "fontWeight1 fontWeight2"
+}
+```
+
 
 ## Components Documentation
 
@@ -532,7 +549,6 @@ $ vim sass/src/base/nojs.scss
 * [Tags](#tags)
 * [Tooltips](#tooltips)
 * [Toggels](#toggles)
-
 
 ### Button
 
@@ -724,7 +740,7 @@ path tag will be replaced with relative sass path
 
 ### Compile Workflow
 
-*compile all themes*
+#### All themes
 
 ```sh
 $ grunt compile
@@ -732,22 +748,22 @@ $ grunt compile
 
 all existing theme will be merged with each concat files relative to folders depth
 
-*compile only given theme*
+#### Specific theme
 
 ```sh
-$ grunt compile -theme=flat
+$ grunt compile -theme={name}
 ```
 
 ### Font generation
 
 ```sh
-$ grunt font -name=name
+$ grunt font -name={name}
 ```
 
-all files from
+will generate an font with all icons from:
 
 ```sh
-$ deliver/icons/{name}/*.svg
+$ deliver/font/{name}/*.svg
 ```
 
 *example*
@@ -756,8 +772,6 @@ $ deliver/icons/{name}/*.svg
 * remove.svg
 * check.svg
 * magnify.svg
-
-will be compiled into a webfont and auto include generated icon font css file with possable icons
 
 you can use all icons like:
 
