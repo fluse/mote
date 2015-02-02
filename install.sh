@@ -47,8 +47,4 @@ npm install
 
 ### create theme css with theme directory
 
-read -p "The Name of your theme?" CONT
-
-grunt mote
-grunt theme -name='$CONT'
-grunt compile
+node tasks
