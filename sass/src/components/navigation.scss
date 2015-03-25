@@ -3,6 +3,7 @@
  */
 
 .nav {
+    @extend .nav-hover-hook !optional;
 
     > li {
         @extend .flt-lft;
@@ -50,7 +51,7 @@
         }
 
         &:hover > ul {
-            left: auto;
+            @extend .nav-menu-hover-hook !optional;
         }
     }
 
