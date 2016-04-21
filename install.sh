@@ -35,12 +35,12 @@ fi
 
 ### install sass
 
-sudo gem install sass
-sudo gem install sass-json-vars
+#sudo gem install sass
+#sudo gem install sass-json-vars
 
 ### node package manager
-npm install bower -g
-npm install grunt-cli -g
+#npm install bower -g
+#npm install grunt-cli -g
 
 ### install package.json dependencies
 npm install
